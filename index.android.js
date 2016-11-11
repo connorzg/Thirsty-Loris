@@ -11,6 +11,8 @@ import {
   Text,
   View
 } from 'react-native';
+import {ListView} from 'realm/react-native';
+import realm from '../utils/realm';
 
 export default class thirstyloris extends Component {
   render() {
