@@ -22,8 +22,12 @@ export default class App extends Component {
 
     return(
       <View>
+
         <BeerList />
         {/* <BreweryList /> */}
+
+        <BreweryList />
+
       </View>
     )
   }
