@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import _ from 'lodash';
 import {
   StyleSheet,
   View,
@@ -9,14 +8,16 @@ import {
   Text
 } from 'react-native';
 import {ListView} from 'realm/react-native';
+import realm from '../utils/realm';
+import axios from 'axios';
+import BeerList from './BeerList.js';
 
-export default class Beer extends Component {
+export default class App extends Component {
+
   render() {
     return(
       <View>
-        <TouchableHighlight>
-          <Text>Beer</Text>
-        </TouchableHighlight>
+        <BeerList />
       </View>
     )
   }
