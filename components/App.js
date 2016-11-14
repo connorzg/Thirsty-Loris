@@ -13,11 +13,17 @@ import axios from 'axios';
 import BeerList from './BeerList.js';
 import BreweryList from './BreweryList.js';
 
+
+
 export default class App extends Component {
 
+
   render() {
+
     return(
       <View>
+        <BeerList />
+        {/* <BreweryList /> */}
       </View>
     )
   }
