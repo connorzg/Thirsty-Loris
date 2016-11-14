@@ -11,27 +11,29 @@ import axios from 'axios';
 export default class BreweryList extends Component{
   constructor(props){
     super(props);
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1,r2) => r1 !== r2
+    })
     this.state = {
-      breweries: ds.cloneWithRows(['row 1', 'row 2'])
+      breweries: dataSource.cloneWithRows([])
     }
-    axios.get('http://api.brewerydb.com/v2//breweries?key=71adb5730d8b61f38b3894fa400f85a7')
-    .then(function (response) {
-      console.log(response);
+    fetch('https://api.brewerydb.com/v2/breweries?key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
+    .then((responseText) => {
+      console.log(responseText);
+      this.setState({
+        breweries: dataSource.cloneWithRows(responseText.data)
+      })
     })
     .catch(function (error) {
       console.log(error);
     });
-    const dataSource = new ListView.DataSource({
-      rowHasChanged: (r1,r2) => r1 !== r2
-    })
-
   }
   render(){
     return(
       <View>
         <ListView
         dataSource={this.state.breweries}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
+        renderRow={(rowData) => <Text>{rowData.name}</Text>}
         />
       </View>
     )
