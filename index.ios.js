@@ -13,29 +13,13 @@ import {
 } from 'react-native';
 import {ListView} from 'realm/react-native';
 import realm from './utils/realm.js';
+import App from './components/App.js';
 
 export default class thirstyloris extends Component {
 
-  componentDidMount() {
-    axios.get('http://api.brewerydb.com/v2/locations?key=71adb5730d8b61f38b3894fa400f85a7').then(function(req, res) {
-      console.log(res);
-    })
-  }
-
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <App />
     );
   }
 }
