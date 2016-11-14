@@ -26,7 +26,6 @@ export default class App extends Component {
         <BeerList />
         {/* <BreweryList /> */}
 
-        <BreweryList />
 
       </View>
     )
