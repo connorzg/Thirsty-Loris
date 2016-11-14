@@ -13,11 +13,9 @@ import {ListView} from 'realm/react-native';
 export default class Beer extends Component {
   render() {
     return(
-      <View>
-        <TouchableHighlight>
-          <Text>Beer</Text>
-        </TouchableHighlight>
-      </View>
+      <TouchableHighlight onPress={() => console.log(this.props.beerName)} >
+        <Text>{this.props.beerName.name}</Text>
+      </TouchableHighlight>
     )
   }
 }
