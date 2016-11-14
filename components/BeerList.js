@@ -16,7 +16,7 @@ export default class BeerList extends Component {
   constructor(props) {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     super(props)
-    axios.get('http://api.brewerydb.com/v2/beers?order=random&randomCount=10&key=71adb5730d8b61f38b3894fa400f85a7').then(function(response) {
+    fetch('http://api.brewerydb.com/v2/beers?order=random&randomCount=10&key=71adb5730d8b61f38b3894fa400f85a7').then(function(response) {
       console.log(response);
       this.state = { dataSource: ds.cloneWithRows([response]) };
     })
