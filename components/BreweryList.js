@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 
+
 export default class BreweryList extends Component{
   constructor(props){
     super(props);
@@ -15,11 +16,21 @@ export default class BreweryList extends Component{
       rowHasChanged: (r1,r2) => r1 !== r2
     })
     this.state = {
+      page: 1,
       breweries: dataSource.cloneWithRows([])
     }
-    fetch('https://api.brewerydb.com/v2/breweries?key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
+    this._getBreweries = this._getBreweries.bind(this);
+  }
+  _getBreweries(){
+    console.log("cow");
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1,r2) => r1 !== r2
+    })
+    fetch('https://api.brewerydb.com/v2/breweries?key=71adb5730d8b61f38b3894fa400f85a7&p=' + this.state.page, {
+      params: {
+      }
+    }).then((response) => response.json())
     .then((responseText) => {
-      console.log(responseText);
       this.setState({
         breweries: dataSource.cloneWithRows(responseText.data)
       })
@@ -28,10 +39,14 @@ export default class BreweryList extends Component{
       console.log(error);
     });
   }
+  componentDidMount(){
+    this._getBreweries();
+  }
   render(){
     return(
       <View>
         <ListView
+        enableEmptySections={true}
         dataSource={this.state.breweries}
         renderRow={(rowData) => <Text>{rowData.name}</Text>}
         />
