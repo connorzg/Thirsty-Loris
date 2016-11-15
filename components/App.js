@@ -10,20 +10,23 @@ import {
 import {ListView} from 'realm/react-native';
 import realm from '../utils/realm';
 import axios from 'axios';
-import BeerList from './BeerList.js';
-import BreweryList from './BreweryList.js';
+import CityLocation from './CityLocation.js';
+
 
 
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
 
+
+  }
 
   render() {
 
     return(
       <View>
-        <BeerList />
-        {/* <BreweryList /> */}
+        <CityLocation />
       </View>
     )
   }
