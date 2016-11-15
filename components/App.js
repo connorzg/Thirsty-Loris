@@ -14,7 +14,7 @@ import Dropdown from './Dropdown.js';
 import NavBar from './NavBar.js';
 import CityLocation from './CityLocation.js';
 import BeerList from './BeerList.js';
-import RandomList from './RandomList.js';
+import TriedList from './TriedList.js';
 import TypeSearch from './TypeSearch.js';
 
 
@@ -35,11 +35,7 @@ export default class App extends Component {
   render() {
 
     return(
-
-
-        <TypeSearch />
-
-
+        <TriedList />
     )
   }
 }
@@ -48,4 +44,4 @@ var styles = StyleSheet.create({
   container: {
     flex: 1
   }
-}
+})
