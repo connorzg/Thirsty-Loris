@@ -15,6 +15,7 @@ export default class GeoLocation extends Component{
    currentLongitude: '',
  }
  this._getLocation = this._getLocation.bind(this)
+ this._locationAPI = this._getLocation.bind(this)
  }
 
  watchID: ?number = null;
@@ -32,7 +33,7 @@ export default class GeoLocation extends Component{
          currentLatitude: currentLatitude,
          currentLongitude: currentLongitude
        });
-       _locationAPI()
+       this._locationAPI()
      },
      (error) => alert(JSON.stringify(error))
    );
