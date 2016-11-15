@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, {Component} from 'react';
 import {
   ListView,
@@ -8,7 +7,7 @@ import {
   View
 } from 'react-native';
 import axios from 'axios';
-import InfiniteScrollView from 'react-native-infinite-scroll-view';
+// import InfiniteScrollView from 'react-native-infinite-scroll-view';
 
 export default class BreweryList extends Component{
   constructor(props){

@@ -1,40 +1,27 @@
 import React, {Component} from 'react';
 import {
+  Picker,
+  PixelRatio,
   StyleSheet,
-  View,
+  Text,
   TouchableHighlight,
-  Switch,
-  Text
+  View
 } from 'react-native';
-import {ListView} from 'realm/react-native';
-import realm from '../utils/realm';
-import axios from 'axios';
-import SearchBar from './SearchBar.js';
-import Dropdown from './Dropdown.js';
-import NavBar from './NavBar.js';
-import CityLocation from './CityLocation.js';
-import BeerList from './BeerList.js';
-import BreweryList from './BreweryList.js';
-import BrewerySearch from './BrewerySearch.js';
 
-
-
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      searchTerm: ''
-    }
-  }
-
-  render() {
-
+export default class Dropdown extends Component{
+  render(){
     return(
-      <View style={styles.container}>
-        <SearchBar />
-        <Dropdown />
-        <NavBar />
+      <View style={styles.dropdownContainer}>
+        <Picker
+        style={styles.dropdown}
+        // selectedValue={this.state.searchTerm}
+        // onValueChange={(term) => this.setState({searchTerm: term})}
+        >
+          <Picker.Item label="Beer" value="Beer" />
+          <Picker.Item label="Brewery" value="Brewery" />
+          <Picker.Item label="ABV" value="ABV" />
+          <Picker.Item label="Location" value="Location" />
+        </Picker>
       </View>
     )
   }
@@ -55,7 +42,7 @@ var styles = StyleSheet.create({
     color: 'gray',
     backgroundColor: 'white',
   },
-  pickerContainer: {
+  dropdownContainer: {
     flex: 1
   },
   picker: {
