@@ -28,13 +28,21 @@ export default class App extends Component {
     }
   }
 
-  // _searchTerm(term) {
-  //   this.setState({searchTerm:term})
-  // }
+  _navSecond() {
+    this.props.navigator.push({
+      title: 'BrewerySearch',
+      component: BrewerySearch
+    })
+  }
 
   render() {
 
     return(
+      <View style={styles.container}>
+        <SearchBar />
+        <Dropdown />
+        <NavBar />
+      </View>
         <TriedList />
     )
   }

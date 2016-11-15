@@ -15,6 +15,7 @@ import {
 import {ListView} from 'realm/react-native';
 import realm from './utils/realm.js';
 import App from './components/App.js';
+import BrewerySearch from './components/BrewerySearch.js';
 
 export default class thirstyloris extends Component {
 
@@ -23,13 +24,24 @@ export default class thirstyloris extends Component {
       <NavigatorIOS
         style={styles.container}
         initialRoute={{
-          title: 'Search',
+          title: 'Home',
           component: App
-        }} style={{flex: 1}}/>
+        }}
+        renderScene={
+          this.navigatorRenderScene
+        }
+        style={{flex: 1}}/>
     );
   }
+  navigatorRenderScene(route, navigator) {
+    switch (route.id) {
+      case 'Home':
+        return (<App navigator={navigator} title='Home'/>);
+      case 'BrewerySearch':
+        return (<BrewerySearch navigator={navigator} title='BrewerySearch'/>);
+    }
+  }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -46,7 +58,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
+  }
 });
 
 AppRegistry.registerComponent('thirstyloris', () => thirstyloris);
