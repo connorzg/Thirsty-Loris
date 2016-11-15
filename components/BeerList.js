@@ -23,7 +23,6 @@ export default class BeerList extends Component {
     }
     fetch('https://api.brewerydb.com/v2/beers?order=random&randomCount=10&hasLabel=Y&withBreweries=Y&withSocialAccounts=Y&withIngredients=Y&abv=0,50&key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
     .then((responseText) => {
-      console.log(responseText);
       this.setState({
         beers: dataSource.cloneWithRows(responseText.data)
       })
