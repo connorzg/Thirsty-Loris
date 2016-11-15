@@ -13,13 +13,24 @@ import Beer from './Beer.js';
 import axios from 'axios';
 
 export default class BeerList extends Component {
-  constructor(props) {
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    super(props)
-    axios.get('http://api.brewerydb.com/v2/beers?order=random&randomCount=10&key=71adb5730d8b61f38b3894fa400f85a7').then(function(response) {
-      console.log(response);
-      this.state = { dataSource: ds.cloneWithRows([response]) };
+  constructor(props){
+    super(props);
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1,r2) => r1 !== r2
     })
+    this.state = {
+      beers: dataSource.cloneWithRows([])
+    }
+    fetch('https://api.brewerydb.com/v2/beers?order=random&randomCount=10&key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
+    .then((responseText) => {
+      console.log(responseText);
+      this.setState({
+        beers: dataSource.cloneWithRows(responseText.data)
+      })
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
 
@@ -27,8 +38,8 @@ export default class BeerList extends Component {
     return(
       <View>
         <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
+          dataSource={this.state.beers}
+          renderRow={(rowData) => <Beer beerName={rowData} />}
         />
       </View>
     )
