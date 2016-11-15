@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 import axios from 'axios';
-
+import InfiniteScrollView from 'react-native-infinite-scroll-view';
 
 export default class BreweryList extends Component{
   constructor(props){
@@ -16,23 +16,22 @@ export default class BreweryList extends Component{
       rowHasChanged: (r1,r2) => r1 !== r2
     })
     this.state = {
-      page: 1,
-      breweries: dataSource.cloneWithRows([])
+      beers: dataSource.cloneWithRows([])
     }
     this._getBreweries = this._getBreweries.bind(this);
   }
   _getBreweries(){
-    console.log("cow");
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
     })
-    fetch('https://api.brewerydb.com/v2/breweries?key=71adb5730d8b61f38b3894fa400f85a7&p=' + this.state.page, {
-      params: {
-      }
-    }).then((response) => response.json())
+    //var searchString = 'https://api.brewerydb.com/v2/brewery/YXDiJk/beers?key=71adb5730d8b61f38b3894fa400f85a7';
+    var searchString = `https://api.brewerydb.com/v2/brewery/${this.props.breweryid}/beers?key=71adb5730d8b61f38b3894fa400f85a7`;
+    console.log(this.props.breweryid);
+    console.log(searchString);
+    fetch(searchString).then((response) => response.json())
     .then((responseText) => {
       this.setState({
-        breweries: dataSource.cloneWithRows(responseText.data)
+        beers: dataSource.cloneWithRows(responseText.data)
       })
     })
     .catch(function (error) {
@@ -47,7 +46,7 @@ export default class BreweryList extends Component{
       <View>
         <ListView
         enableEmptySections={true}
-        dataSource={this.state.breweries}
+        dataSource={this.state.beers}
         renderRow={(rowData) => <Text>{rowData.name}</Text>}
         />
       </View>
