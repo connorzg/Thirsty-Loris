@@ -28,17 +28,23 @@ export default class App extends Component {
     }
   }
 
-  // _searchTerm(term) {
-  //   this.setState({searchTerm:term})
-  // }
+  _navSecond() {
+    this.props.navigator.push({
+      title: 'BrewerySearch',
+      component: BrewerySearch
+    })
+  }
 
   render() {
 
     return(
       <View style={styles.container}>
-        <SearchBar callback={this._searchTerm} />
+        <SearchBar />
         <Dropdown />
         <NavBar />
+        <TouchableHighlight onPress={this._navSecond.bind(this)}>
+          <Text>Nav Switch</Text>
+        </TouchableHighlight>
       </View>
     )
   }
@@ -48,4 +54,4 @@ var styles = StyleSheet.create({
   container: {
     flex: 1
   }
-}
+})
