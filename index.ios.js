@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  NavigatorIOS
 } from 'react-native';
 import {ListView} from 'realm/react-native';
 import realm from './utils/realm.js';
@@ -19,7 +20,15 @@ export default class thirstyloris extends Component {
 
   render() {
     return (
+      <View>
+      <NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+          title: 'Search',
+          Component:App
+        }} />
       <App />
+      </View>
     );
   }
 }

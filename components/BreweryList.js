@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, {Component} from 'react';
 import {
   ListView,
@@ -54,5 +53,3 @@ export default class BreweryList extends Component{
     )
   }
 }
-=======
->>>>>>> edeebd2bb03d779f833dc8adcb6c4dac8cf13f0e
