@@ -21,12 +21,11 @@ export default class thirstyloris extends Component {
   render() {
     return (
       <NavigatorIOS
+        style={styles.container}
         initialRoute={{
-          component: App,
-          title: 'Search'
-        }}
-        style={{flex: 1}}
-      />
+          title: 'Search',
+          component: App
+        }} style={{flex: 1}}/>
     );
   }
 }
