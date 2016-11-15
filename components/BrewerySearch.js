@@ -48,7 +48,7 @@ export default class BrewerySearch extends Component{
   _showList(){
     console.log("cowcow");
     if (this.state.currentBrewery === '0'){
-      return (<Text>COW!</Text>);
+      return (<Text>Beers loading...</Text>);
     } else {
       return (<BreweryList breweryid={this.state.currentBrewery} />);
     }
