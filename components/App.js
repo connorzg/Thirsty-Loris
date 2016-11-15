@@ -28,10 +28,16 @@ export default class App extends Component {
 
     return(
 
-      <View>
-        <CityLocation />
-        <BeerList />
+      <View style={styles.container}>
+        {/* <CityLocation />
+        <BeerList style={{flex: 1}} /> */}
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+})
