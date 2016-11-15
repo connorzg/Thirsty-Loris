@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-  ListView,
   PixelRatio,
   StyleSheet,
   Text,
