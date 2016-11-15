@@ -21,8 +21,6 @@ export default class Beer extends Component {
     } else {
       imgUrl = 'https://facebook.github.io/react/img/logo_og.png';
     }
-    console.log(this.props.beerObject.labels);
-    //console.log(imgUrl);
     return(
       <View style={styles.buttonContainer}>
         <View style={styles.imageContainer}>

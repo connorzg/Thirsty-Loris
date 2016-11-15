@@ -33,7 +33,6 @@ export default class thirstyloris extends Component {
         style={{flex: 1}}/>
     );
   }
-// }
   navigatorRenderScene(route, navigator) {
     switch (route.id) {
       case 'Home':

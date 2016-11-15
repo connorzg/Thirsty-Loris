@@ -14,8 +14,8 @@ import Dropdown from './Dropdown.js';
 import NavBar from './NavBar.js';
 import CityLocation from './CityLocation.js';
 import BeerList from './BeerList.js';
-import BreweryList from './BreweryList.js';
-import BrewerySearch from './BrewerySearch.js';
+import TriedList from './TriedList.js';
+import TypeSearch from './TypeSearch.js';
 
 
 
@@ -42,10 +42,8 @@ export default class App extends Component {
         <SearchBar />
         <Dropdown />
         <NavBar />
-        <TouchableHighlight onPress={this._navSecond.bind(this)}>
-          <Text>Nav Switch</Text>
-        </TouchableHighlight>
       </View>
+        <TriedList />
     )
   }
 }
