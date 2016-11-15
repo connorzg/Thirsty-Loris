@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import InfiniteScrollView from 'react-native-infinite-scroll-view';
+import Beer from './Beer.js';
 
 export default class BreweryList extends Component{
   constructor(props){
@@ -19,6 +20,7 @@ export default class BreweryList extends Component{
       beers: dataSource.cloneWithRows([])
     }
     this._getBreweries = this._getBreweries.bind(this);
+    this._renderBeers = this._renderBeers.bind(this);
   }
   _getBreweries(){
     const dataSource = new ListView.DataSource({
@@ -38,6 +40,12 @@ export default class BreweryList extends Component{
       console.log(error);
     });
   }
+  _renderBeers(beerObject){
+    return(
+      <Beer beerObject={beerObject} />
+    )
+
+  }
   componentDidMount(){
     this._getBreweries();
   }
@@ -47,7 +55,7 @@ export default class BreweryList extends Component{
         <ListView
         enableEmptySections={true}
         dataSource={this.state.beers}
-        renderRow={(rowData) => <Text>{rowData.name}</Text>}
+        renderRow={(rowData) => this._renderBeers(rowData)}
         />
       </View>
     )
