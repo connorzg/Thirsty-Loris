@@ -14,8 +14,8 @@ import Dropdown from './Dropdown.js';
 import NavBar from './NavBar.js';
 import CityLocation from './CityLocation.js';
 import BeerList from './BeerList.js';
-import BreweryList from './BreweryList.js';
-import BrewerySearch from './BrewerySearch.js';
+import RandomList from './RandomList.js';
+import TypeSearch from './TypeSearch.js';
 
 
 
@@ -35,11 +35,11 @@ export default class App extends Component {
   render() {
 
     return(
-      <View style={styles.container}>
-        <SearchBar callback={this._searchTerm} />
-        <Dropdown />
-        <NavBar />
-      </View>
+
+
+        <TypeSearch />
+
+
     )
   }
 }
