@@ -15,6 +15,7 @@ import {
 import {ListView} from 'realm/react-native';
 import realm from './utils/realm.js';
 import App from './components/App.js';
+import Beer from './components/Beer.js';
 import NavBar from './components/NavBar.js';
 
 export default class thirstyloris extends Component {
@@ -34,7 +35,7 @@ export default class thirstyloris extends Component {
     );
   }
   navigatorRenderScene(route, navigator) {
-    switch (route.id) {
+    switch (route.title) {
       case 'Home':
         return (<App navigator={navigator} title='Home'/>);
       case 'Tried List':
@@ -43,12 +44,17 @@ export default class thirstyloris extends Component {
         return (<SavedList navigator={navigator} title='Saved List'/>);
       case 'Random List':
         return (<RandomList navigator={navigator} title='Random List'/>);
+      case 'Beer Info':
+        return (<BeerInfo navigator={navigator} title='Beer Info'/>);
+      case 'Beer List':
+        return (<BeerList navigator={navigator} title='Beer List'/>);
+      case 'Beer':
+        return (<Beer navigator={navigator} title='Beer'/>);
     }
   }
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',

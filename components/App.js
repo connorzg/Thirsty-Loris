@@ -4,7 +4,8 @@ import {
   View,
   TouchableHighlight,
   Switch,
-  Text
+  Text,
+  TextInput
 } from 'react-native';
 import {ListView} from 'realm/react-native';
 import realm from '../utils/realm';
@@ -51,12 +52,14 @@ export default class App extends Component {
       component: RandomList
     })
   }
+
   _savedPress() {
     this.props.navigator.push({
       title: 'Saved List',
       component: SavedList
     })
   }
+
   _tastedPress() {
     this.props.navigator.push({
       title: 'Tried List',
@@ -123,21 +126,21 @@ export default class App extends Component {
     console.log(this.state.dropdownTerm);
   }
 
+
   render() {
     return(
-
       <View style={styles.container}>
         <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText}/>
         <Dropdown handleSearch={this._handleDropdownSelect}/>
         <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
       </View>
-
     )
   }
 }
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 10,
+    backgroundColor: 'rgb(239,179,72)'
   }
 })

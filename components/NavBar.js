@@ -3,7 +3,7 @@ import {
   PixelRatio,
   StyleSheet,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   View
 } from 'react-native';
 import BrewerySearch from './BrewerySearch.js';
@@ -12,15 +12,15 @@ export default class NavBar extends Component{
   render(){
     return(
       <View style={styles.navContainer}>
-        <TouchableHighlight style={styles.nav} onPress={this.props.nearMe}>
+        <TouchableOpacity style={styles.nav} onPress={this.props.nearMe}>
           <Text>NEAR ME</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.nav} onPress={this.props.saved}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.nav} onPress={this.props.saved}>
           <Text>SAVED</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.nav} onPress={this.props.tasted}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.nav} onPress={this.props.tasted}>
           <Text>TASTED</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -28,15 +28,15 @@ export default class NavBar extends Component{
 
 var styles = StyleSheet.create({
   navContainer: {
-    flex: 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'flex-end',
-    paddingBottom: 30
+    marginBottom: 15
   },
   nav: {
-    borderWidth: 1,
-    borderColor: 'gray',
-    padding: 10
+    padding: 12,
+    backgroundColor: 'white',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })

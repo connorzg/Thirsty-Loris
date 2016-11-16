@@ -37,7 +37,7 @@ export default class TriedList extends Component {
   render() {
     return(
       <View>
-        <BeerList
+        <BeerList navigator={this.props.navigator}
           beers={this.state.beers}
         />
       </View>

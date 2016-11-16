@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableHighlight,
+  TouchableOpacity,
   TextInput,
   PixelRatio,
   Switch,
@@ -14,6 +15,18 @@ import {ListView} from 'realm/react-native';
 import BeerInfo from './BeerInfo.js';
 
 export default class Beer extends Component {
+
+  _beerPress() {
+    // console.log(this.props.beerObject);
+    this.props.navigator.push({
+      title: 'Beer Info',
+      component: BeerInfo,
+      passProps: {
+        beerObject: this.props.beerObject
+      }
+    })
+  }
+
   render() {
     let imgUrl = 'https://facebook.github.io/react/img/logo_og.png';
     if (this.props.beerObject.labels !== undefined){
@@ -23,6 +36,7 @@ export default class Beer extends Component {
     }
     //console.log(this.props.beerObject);
     return(
+      <TouchableOpacity onPress={() => this._beerPress()}>
       <View style={styles.buttonContainer}>
         <View style={styles.imageContainer}>
           <Image
@@ -42,6 +56,7 @@ export default class Beer extends Component {
           </View>
         </View>
       </View>
+    </TouchableOpacity>
     )
   }
 }
