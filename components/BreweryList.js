@@ -27,8 +27,8 @@ export default class BreweryList extends Component{
       rowHasChanged: (r1,r2) => r1 !== r2
     })
     var searchString = `https://api.brewerydb.com/v2/brewery/${this.props.breweryid}/beers?key=71adb5730d8b61f38b3894fa400f85a7`;
-    //console.log(this.props.breweryid);
-    //console.log(searchString);
+    console.log(this.props.breweryid);
+    console.log(searchString);
     fetch(searchString).then((response) => response.json())
     .then((responseText) => {
       this.setState({

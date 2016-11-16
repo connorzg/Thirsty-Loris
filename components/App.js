@@ -15,12 +15,12 @@ import NavBar from './NavBar.js';
 import CityLocation from './CityLocation.js';
 import BeerList from './BeerList.js';
 import BrewerySearch from './BrewerySearch.js';
-import ABVList from './ABVList.js';
+import ABVSearch from './ABVSearch.js';
+import LocationSearch from './LocationSearch.js';
 import TriedList from './TriedList.js';
 import SavedList from './SavedList.js';
 import RandomList from './RandomList.js';
 import TypeSearch from './TypeSearch.js';
-
 
 
 
@@ -31,14 +31,17 @@ export default class App extends Component {
 
     this.state = {
       searchTerm: '',
-      dropdownTerm: ''
+      dropdownTerm: 'Beer'
     }
     this._nearMePress = this._nearMePress.bind(this)
     this._savedPress = this._savedPress.bind(this)
     this._tastedPress = this._tastedPress.bind(this)
-    this._beerList = this._beerList.bind(this)
+    this._typeSearch = this._typeSearch.bind(this)
     this._brewerySearch = this._brewerySearch.bind(this)
-    this._ABVList = this._ABVList.bind(this)
+    this._ABVSearch = this._ABVSearch.bind(this)
+    this._locationSearch = this._locationSearch.bind(this)
+    this._onChangeText = this._onChangeText.bind(this)
+    this._handleSearchSubmit = this._handleSearchSubmit.bind(this)
     this._handleDropdownSelect = this._handleDropdownSelect.bind(this)
   }
 
@@ -60,10 +63,10 @@ export default class App extends Component {
       component: TriedList
     })
   }
-  _beerList() {
+  _typeSearch() {
     this.props.navigator.push({
-      title: 'Beer List',
-      component: BeerList,
+      title: this.state.SearchTerm ,
+      component: TypeSearch,
       passProps: {
         type: this.state.searchTerm
       }
@@ -71,48 +74,64 @@ export default class App extends Component {
   }
   _brewerySearch() {
     this.props.navigator.push({
-      title: 'Brewery List',
+      title: this.state.SearchTerm ,
       component: BrewerySearch,
       passProps: {
         brewery: this.state.searchTerm
       }
     })
   }
-  _ABVList() {
+  _ABVSearch() {
     this.props.navigator.push({
-      title: 'ABV List',
-      component: ABVList,
+      title: this.state.SearchTerm ,
+      component: ABVSearch,
       passProps: {
         abvvalue: this.state.searchTerm
       }
     })
   }
+  _locationSearch() {
+    this.props.navigator.push({
+      title: this.state.SearchTerm ,
+      component: LocationSearch,
+      passProps: {
+        location: this.state.searchTerm
+      }
+    })
+  }
 
+  _onChangeText(searchTerm) {
+    this.setState({searchTerm})
+  }
+
+  _handleSearchSubmit() {
+    if (this.state.dropdownTerm === 'Beer' ) {
+      this._typeSearch()
+    } else if (this.state.dropdownTerm === 'Brewery'){
+      this._brewerySearch()
+    } else if (this.state.dropdownTerm === 'ABV'){
+      this._ABVSearch()
+    } else if (this.state.dropdownTerm === 'Location'){
+      this._locationSearch()
+    }
+  }
 
   _handleDropdownSelect(selectedValue) {
     this.setState({
       dropdownTerm: selectedValue
     })
     console.log(this.state.dropdownTerm);
-    // if (selectedValue === 'Beer') {
-    //   this._beerList()
-    // } else if (selectedValue === 'Brewery') {
-    //   this._brewerySearch()
-    // } else if (selectedValue === 'ABV') {
-    //   this._ABVList()
-    // }
-    // else if (selectedValue === 'Location') {
-    //   console.log('Location');
-    // }
   }
 
   render() {
     return(
+
       <View style={styles.container}>
-        <SearchBar />
+        <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText}/>
         <Dropdown handleSearch={this._handleDropdownSelect}/>
         <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
       </View>
+
     )
   }
 }

@@ -12,7 +12,7 @@ export default class SearchBar extends Component{
   render(){
     return(
       <View style={styles.searchContainer}>
-        <TextInput placeholder="hello" style={styles.searchBar}/>
+        <TextInput placeholder="hello" style={styles.searchBar} onSubmitEditing={this.props.searchBarSubmit} onChangeText={this.props.onChangeText}/>
       </View>
     )
   }
@@ -20,7 +20,7 @@ export default class SearchBar extends Component{
 
 var styles = StyleSheet.create({
   searchContainer: {
-    flex: 1,
+    flex: 5,
     marginHorizontal: 100,
   },
   searchBar: {

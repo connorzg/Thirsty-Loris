@@ -15,7 +15,7 @@ export default class Dropdown extends Component{
         <Picker
         style={styles.dropdown}
         onValueChange={this.props.handleSearch}
-        // onValueChange={(term) => this.setState({searchTerm: term})}
+        // selectedValue={this.props.handleSearch}
         >
           <Picker.Item label="Beer" value="Beer" />
           <Picker.Item label="Brewery" value="Brewery" />

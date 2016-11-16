@@ -8,53 +8,38 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
-import TypeList from './TypeList.js';
+import ABVList from './ABVList.js';
 
-export default class TypeSearch extends Component{
+export default class ABVSearch extends Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm: '5',
-      abvValue: '0'
+      searchTerm: this.props.abvvalue,
+      abvValue: ''
     }
     this._showList = this._showList.bind(this);
   }
-  _searchBreweries(){
-    var searchString = `https://api.brewerydb.com/v2/styles?name=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
-    fetch(searchString, {
-      params: {
-      }
-    }).then((response) => response.json())
-    .then((responseText) => {
-      //console.log(responseText.data);
-      if (responseText.data.length > 0) {
-        let newTypeId = responseText.data[0].id;
-        let newTypeName = responseText.data[0].name;
-        this.setState({
-          searchTerm: newTypeName,
-          styleId: newTypeId
-        })
-        //this._showList();
-      } else {
-        this.setState({
-          searchTerm: 'No results found.'
-        })
-      }
+  _searchAbvValues(){
+    let searchAbv = parseFloat(this.state.searchTerm);
+    let minAbv = Math.floor(searchAbv)
+    let maxAbv = minAbv + 1;
+    let totalAbv = minAbv.toString() + "," + maxAbv.toString();
+    //console.log(totalAbv);
+
+    this.setState({
+      abvValue: totalAbv
     })
-    .catch(function (error) {
-      console.log(error);
-    });
   }
   _showList(){
-    if (this.state.styleId === '0'){
+    if (this.state.styleId === ''){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<TypeList typeid={this.state.styleId} />);
+      return (<ABVList abvValue={this.state.abvValue} />);
     }
 
   }
   componentWillMount(){
-    this._searchBreweries();
+    this._searchAbvValues();
   }
 
   render(){

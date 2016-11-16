@@ -8,37 +8,38 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
+import LocationList from './LocationList.js';
 import BreweryList from './BreweryList.js';
 
-export default class BrewerySearch extends Component{
+export default class LocationSearch extends Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm: this.props.brewery,
-      currentBrewery: '0'
+      searchTerm: this.props.location,
+      locationId: ''
     }
     this._showList = this._showList.bind(this);
   }
-  _searchBreweries(){
-    var searchString = `https://api.brewerydb.com/v2/search?type=brewery&q=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
-    console.log('Brewery List ', searchString);
+  _searchLocations(){
+    var searchString =
+   `https://api.brewerydb.com/v2/locations?locality=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
     fetch(searchString, {
       params: {
       }
     }).then((response) => response.json())
     .then((responseText) => {
-      //console.log(responseText.data);
       if (responseText.data.length > 0) {
-        let newBrewId = responseText.data[0].id;
-        let newBrewName = responseText.data[0].name;
+        let newLocationId = responseText.data[2].id;
+        let newLocationName = responseText.data[2].name;
         this.setState({
-          searchTerm: newBrewName,
-          currentBrewery: newBrewId
+          searchTerm: newLocationName,
+          locationId: newLocationId
         })
         //this._showList();
       } else {
         this.setState({
-          searchTerm: 'No results found.'
+          searchTerm: 'No results found.',
+          locationId: ''
         })
       }
     })
@@ -47,15 +48,15 @@ export default class BrewerySearch extends Component{
     });
   }
   _showList(){
-    if (this.state.currentBrewery === '0'){
+    if (this.state.locationId === ''){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<BreweryList breweryid={this.state.currentBrewery} />);
+      return (<BreweryList breweryid={this.state.locationId} />);
     }
 
   }
   componentWillMount(){
-    this._searchBreweries();
+    this._searchLocations();
   }
 
   render(){
