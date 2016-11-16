@@ -9,7 +9,7 @@ import {
   View
 } from 'react-native';
 
-export default class Brewery extends Component{
+export default class CityLocation extends Component{
   constructor(props) {
     super(props);
     let dataSource = new ListView.DataSource({

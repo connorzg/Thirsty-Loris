@@ -8,36 +8,38 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
-import TypeList from './TypeList.js';
+import LocationList from './LocationList.js';
+import BreweryList from './BreweryList.js';
 
-export default class TypeSearch extends Component{
+export default class LocationSearch extends Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm: this.props.type,
-      styleId: '0'
+      searchTerm: this.props.location,
+      locationId: ''
     }
     this._showList = this._showList.bind(this);
   }
-  _searchTypes(){
-    var searchString = `https://api.brewerydb.com/v2/styles?name=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
+  _searchLocations(){
+    var searchString =
+   `https://api.brewerydb.com/v2/locations?locality=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
     fetch(searchString, {
       params: {
       }
     }).then((response) => response.json())
     .then((responseText) => {
-      //console.log(responseText.data);
       if (responseText.data.length > 0) {
-        let newTypeId = responseText.data[0].id;
-        let newTypeName = responseText.data[0].name;
+        let newLocationId = responseText.data[2].id;
+        let newLocationName = responseText.data[2].name;
         this.setState({
-          searchTerm: newTypeName,
-          styleId: newTypeId
+          searchTerm: newLocationName,
+          locationId: newLocationId
         })
         //this._showList();
       } else {
         this.setState({
-          searchTerm: 'No results found.'
+          searchTerm: 'No results found.',
+          locationId: ''
         })
       }
     })
@@ -46,15 +48,15 @@ export default class TypeSearch extends Component{
     });
   }
   _showList(){
-    if (this.state.styleId === '0'){
+    if (this.state.locationId === ''){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<TypeList typeid={this.state.styleId} />);
+      return (<BreweryList breweryid={this.state.locationId} />);
     }
 
   }
   componentWillMount(){
-    this._searchTypes();
+    this._searchLocations();
   }
 
   render(){
