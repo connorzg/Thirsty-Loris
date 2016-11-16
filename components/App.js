@@ -13,13 +13,12 @@ import SearchBar from './SearchBar.js';
 import Dropdown from './Dropdown.js';
 import NavBar from './NavBar.js';
 import CityLocation from './CityLocation.js';
-import BeerList from './BeerList.js';
 import TriedList from './TriedList.js';
+import ABVSearch from './ABVSearch.js';
 import SavedList from './SavedList.js';
 import RandomList from './RandomList.js';
 import TypeSearch from './TypeSearch.js';
 import BrewerySearch from './BrewerySearch.js';
-
 
 
 
@@ -56,11 +55,13 @@ export default class App extends Component {
 
   render() {
     return(
+
       <View style={styles.container}>
         <SearchBar />
         <Dropdown />
         <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
       </View>
+
     )
   }
 }
