@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableHighlight,
+  TouchableOpacity,
   TextInput,
   PixelRatio,
   Switch,
@@ -21,9 +22,8 @@ export default class Beer extends Component {
     } else {
       imgUrl = 'https://facebook.github.io/react/img/logo_og.png';
     }
-    console.log(this.props.beerObject.labels);
-    //console.log(imgUrl);
     return(
+      <TouchableOpacity onPress={() => console.log(this.props.beerObject)}>
       <View style={styles.buttonContainer}>
         <View style={styles.imageContainer}>
           <Image
@@ -43,6 +43,7 @@ export default class Beer extends Component {
           </View>
         </View>
       </View>
+    </TouchableOpacity>
     )
   }
 }

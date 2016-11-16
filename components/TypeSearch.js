@@ -8,19 +8,19 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
-import BreweryList from './BreweryList.js';
+import TypeList from './TypeList.js';
 
-export default class BrewerySearch extends Component{
+export default class TypeSearch extends Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm: '(512)',
-      currentBrewery: '0'
+      searchTerm: 'Pale',
+      styleId: '0'
     }
     this._showList = this._showList.bind(this);
   }
-  _searchBreweries(){
-    var searchString = `https://api.brewerydb.com/v2/search?type=brewery&q=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
+  _searchTypes(){
+    var searchString = `https://api.brewerydb.com/v2/styles?name=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
     fetch(searchString, {
       params: {
       }
@@ -28,11 +28,11 @@ export default class BrewerySearch extends Component{
     .then((responseText) => {
       //console.log(responseText.data);
       if (responseText.data.length > 0) {
-        let newBrewId = responseText.data[0].id;
-        let newBrewName = responseText.data[0].name;
+        let newTypeId = responseText.data[0].id;
+        let newTypeName = responseText.data[0].name;
         this.setState({
-          searchTerm: newBrewName,
-          currentBrewery: newBrewId
+          searchTerm: newTypeName,
+          styleId: newTypeId
         })
         //this._showList();
       } else {
@@ -46,15 +46,15 @@ export default class BrewerySearch extends Component{
     });
   }
   _showList(){
-    if (this.state.currentBrewery === '0'){
+    if (this.state.styleId === '0'){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<BreweryList breweryid={this.state.currentBrewery} />);
+      return (<TypeList typeid={this.state.styleId} />);
     }
 
   }
   componentWillMount(){
-    this._searchBreweries();
+    this._searchTypes();
   }
 
   render(){

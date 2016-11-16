@@ -14,10 +14,9 @@ export default class BeerInfo extends Component {
   render() {
     return(
       <View>
-        <Text>{this.props.beer.abv}</Text>
-        <Text>{this.props.beer.description}</Text>
-        <Text>{this.props.beer.style.name}</Text>
-        <Text></Text>
+        <Text>{this.props.beerObject.abv}</Text>
+        <Text>{this.props.beerObject.description}</Text>
+        <Text>{this.props.beerObject.style.name}</Text>
       </View>
     )
   }
