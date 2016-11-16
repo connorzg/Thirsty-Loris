@@ -28,37 +28,13 @@ export default class Dropdown extends Component{
 }
 
 var styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  searchContainer: {
-    flex: 1,
-    marginHorizontal: 100,
-  },
   searchBar: {
-    flex: 1,
     borderWidth: 1,
+    flex: 1,
     borderColor: 'black',
-    color: 'gray',
+    color: 'white',
     backgroundColor: 'white',
   },
   dropdownContainer: {
-    flex: 1
-  },
-  picker: {
-    flex: 1,
-    height: 100
-  },
-  navContainer: {
-    flex: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'flex-end',
-    paddingBottom: 30
-  },
-  nav: {
-    borderWidth: 1,
-    borderColor: 'gray',
-    padding: 10
   }
 })

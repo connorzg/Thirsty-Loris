@@ -27,15 +27,15 @@ export default class NavBar extends Component{
 
 var styles = StyleSheet.create({
   navContainer: {
-    flex: 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'flex-end',
-    paddingBottom: 30
+    marginBottom: 15
   },
   nav: {
-    borderWidth: 1,
-    borderColor: 'gray',
-    padding: 10
+    padding: 12,
+    backgroundColor: 'white',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })

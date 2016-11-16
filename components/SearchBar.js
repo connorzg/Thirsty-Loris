@@ -21,13 +21,10 @@ export default class SearchBar extends Component{
 var styles = StyleSheet.create({
   searchContainer: {
     flex: 1,
-    marginHorizontal: 100,
-  },
-  searchBar: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: 'black',
-    color: 'gray',
     backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 100,
+    borderRadius: 5
   }
 })

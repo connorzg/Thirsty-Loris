@@ -4,7 +4,8 @@ import {
   View,
   TouchableHighlight,
   Switch,
-  Text
+  Text,
+  TextInput
 } from 'react-native';
 import {ListView} from 'realm/react-native';
 import realm from '../utils/realm';
@@ -36,8 +37,8 @@ export default class App extends Component {
 
     return(
       <View style={styles.container}>
-        <SearchBar callback={this._searchTerm} />
-        <Dropdown />
+        <SearchBar  />
+        <Dropdown callback={this._searchTerm} />
         <NavBar />
       </View>
     )
@@ -46,6 +47,7 @@ export default class App extends Component {
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 10,
+    backgroundColor: 'rgb(239,179,72)'
   }
-}
+})
