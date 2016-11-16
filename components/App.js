@@ -13,9 +13,8 @@ import SearchBar from './SearchBar.js';
 import Dropdown from './Dropdown.js';
 import NavBar from './NavBar.js';
 import CityLocation from './CityLocation.js';
-import BeerList from './BeerList.js';
 import TriedList from './TriedList.js';
-import TypeSearch from './TypeSearch.js';
+import ABVSearch from './ABVSearch.js';
 
 
 
@@ -35,7 +34,7 @@ export default class App extends Component {
   render() {
 
     return(
-        <TriedList />
+        <ABVSearch />
     )
   }
 }
