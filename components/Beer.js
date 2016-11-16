@@ -34,6 +34,7 @@ export default class Beer extends Component {
     } else {
       imgUrl = 'https://facebook.github.io/react/img/logo_og.png';
     }
+    //console.log(this.props.beerObject);
     return(
       <TouchableOpacity onPress={() => this._beerPress()}>
       <View style={styles.buttonContainer}>

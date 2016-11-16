@@ -14,8 +14,8 @@ export default class Dropdown extends Component{
       <View style={styles.dropdownContainer}>
         <Picker
         style={styles.dropdown}
-        // selectedValue={this.state.searchTerm}
-        // onValueChange={(term) => this.setState({searchTerm: term})}
+        onValueChange={this.props.handleSearch}
+        // selectedValue={this.props.handleSearch}
         >
           <Picker.Item label="Beer" value="Beer" />
           <Picker.Item label="Brewery" value="Brewery" />
@@ -30,7 +30,6 @@ export default class Dropdown extends Component{
 var styles = StyleSheet.create({
   searchBar: {
     borderWidth: 1,
-    flex: 1,
     borderColor: 'black',
     color: 'white',
     backgroundColor: 'white',

@@ -14,13 +14,14 @@ export default class TypeSearch extends Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm: 'Pale',
+      searchTerm: this.props.type,
       styleId: '0'
     }
     this._showList = this._showList.bind(this);
   }
   _searchTypes(){
     var searchString = `https://api.brewerydb.com/v2/styles?name=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
+    console.log('type ', searchString);
     fetch(searchString, {
       params: {
       }
