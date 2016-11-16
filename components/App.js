@@ -65,7 +65,7 @@ export default class App extends Component {
   }
   _typeSearch() {
     this.props.navigator.push({
-      title: this.state.SearchTerm ,
+      title: this.state.searchTerm ,
       component: TypeSearch,
       passProps: {
         type: this.state.searchTerm
@@ -74,7 +74,7 @@ export default class App extends Component {
   }
   _brewerySearch() {
     this.props.navigator.push({
-      title: this.state.SearchTerm ,
+      title: this.state.searchTerm ,
       component: BrewerySearch,
       passProps: {
         brewery: this.state.searchTerm
@@ -83,7 +83,7 @@ export default class App extends Component {
   }
   _ABVSearch() {
     this.props.navigator.push({
-      title: this.state.SearchTerm ,
+      title: this.state.searchTerm ,
       component: ABVSearch,
       passProps: {
         abvvalue: this.state.searchTerm
@@ -92,7 +92,7 @@ export default class App extends Component {
   }
   _locationSearch() {
     this.props.navigator.push({
-      title: this.state.SearchTerm ,
+      title: this.state.searchTerm ,
       component: LocationSearch,
       passProps: {
         location: this.state.searchTerm
