@@ -39,9 +39,6 @@ export default class App extends Component {
     this.props.navigator.push({
       title: 'Tried List',
       component: TriedList
-      // passProps: {
-      //   beerPress: () => this._beerPress
-      // }
     })
   }
 
@@ -49,9 +46,6 @@ export default class App extends Component {
     this.props.navigator.push({
       title: 'Saved List',
       component: SavedList
-      // passProps: {
-      //   beerPress: () => this._beerPress
-      // }
     })
   }
 
@@ -59,32 +53,17 @@ export default class App extends Component {
     this.props.navigator.push({
       title: 'Random List',
       component: RandomList
-      // passProps: {
-      //   beerPress: () => this._beerPress
-      // }
     })
   }
 
-  // _beerPress() {
-  //   console.log(this.props.beerObject);
-  //   this.props.navigator.push({
-  //     title: 'Beer Info',
-  //     component: BeerInfo
-  //     // passProps: {
-  //     //   beerObject: this.props.beerObject
-  //     // }
-  //   })
-  // }
 
   render() {
     return(
-
       <View style={styles.container}>
         <SearchBar />
         <Dropdown />
         <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
       </View>
-
     )
   }
 }

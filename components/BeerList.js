@@ -21,9 +21,10 @@ export default class BeerList extends Component {
     return(
       <View>
         <ListView
+          navigator={this.props.navigator}
           enableEmptySections={true}
           dataSource={this.props.beers}
-          renderRow={(rowData) => <Beer beerObject={rowData} />}
+          renderRow={(rowData) => <Beer navigator={this.props.navigator} beerObject={rowData} />}
         />
       </View>
     )

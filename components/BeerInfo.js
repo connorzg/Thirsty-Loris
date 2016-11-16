@@ -12,12 +12,22 @@ import {ListView} from 'realm/react-native';
 
 export default class BeerInfo extends Component {
   render() {
+    var beer = this.props.beerObject;
     return(
-      <View>
-        <Text>{this.props.beerObject.abv}</Text>
-        <Text>{this.props.beerObject.description}</Text>
-        <Text>{this.props.beerObject.style.name}</Text>
+      <View style={styles.container}>
+        <Text style={styles.name}>{beer.name}</Text>
+        <Text style={styles.abv}>{beer.abv}</Text>
+        <Text style={styles.description}>{beer.description}</Text>
+        <Text style={styles.type}>{beer.style.name}</Text>
       </View>
     )
   }
 }
+
+var styles = StyleSheet.create({
+  container: {
+    marginTop: 70,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
