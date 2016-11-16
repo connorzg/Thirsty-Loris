@@ -13,7 +13,6 @@ import BreweryList from './BreweryList.js';
 export default class BrewerySearch extends Component{
   constructor(props){
     super(props);
-    console.log(this.props.brewery);
     this.state = {
       searchTerm: this.props.brewery,
       currentBrewery: '0'
@@ -22,6 +21,7 @@ export default class BrewerySearch extends Component{
   }
   _searchBreweries(){
     var searchString = `https://api.brewerydb.com/v2/search?type=brewery&q=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
+    console.log('Brewery List ', searchString);
     fetch(searchString, {
       params: {
       }
