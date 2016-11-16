@@ -14,7 +14,7 @@ export default class ABVSearch extends Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm: '5.2',
+      searchTerm: this.props.abvvalue,
       abvValue: ''
     }
     this._showList = this._showList.bind(this);

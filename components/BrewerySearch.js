@@ -13,8 +13,9 @@ import BreweryList from './BreweryList.js';
 export default class BrewerySearch extends Component{
   constructor(props){
     super(props);
+    console.log(this.props.brewery);
     this.state = {
-      searchTerm: '(512)',
+      searchTerm: this.props.brewery,
       currentBrewery: '0'
     }
     this._showList = this._showList.bind(this);
