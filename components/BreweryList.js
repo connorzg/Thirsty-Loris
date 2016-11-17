@@ -52,6 +52,7 @@ export default class BreweryList extends Component{
     return(
       <View>
         <BeerList
+          navigator={this.props.navigator}
           beers={this.state.beers}
         />
       </View>

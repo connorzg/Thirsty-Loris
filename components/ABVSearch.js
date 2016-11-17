@@ -34,7 +34,9 @@ export default class ABVSearch extends Component{
     if (this.state.styleId === ''){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<ABVList abvValue={this.state.abvValue} />);
+      return (<ABVList
+        navigator={this.props.navigator}
+        abvValue={this.state.abvValue} />);
     }
 
   }

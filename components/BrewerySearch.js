@@ -50,7 +50,9 @@ export default class BrewerySearch extends Component{
     if (this.state.currentBrewery === '0'){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<BreweryList breweryid={this.state.currentBrewery} />);
+      return (<BreweryList
+        navigator={this.props.navigator}
+        breweryid={this.state.currentBrewery} />);
     }
 
   }

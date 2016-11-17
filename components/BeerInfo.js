@@ -80,7 +80,6 @@ export default class BeerInfo extends Component {
       this.props.beerObject.description = "No description found"
     }
 
-    console.log(imgUrl);
     console.log(beer);
     return (
       <View>
@@ -104,7 +103,6 @@ export default class BeerInfo extends Component {
         <TouchableOpacity onPress={this._addTried}>
           <Text>Add To Tried</Text>
         </TouchableOpacity>
-
       </View>
     )
   }

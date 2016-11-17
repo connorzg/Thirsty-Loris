@@ -29,7 +29,7 @@ export default class ABVList extends Component{
     https://api.brewerydb.com/v2/beers?key=71adb5730d8b61f38b3894fa400f85a7
     var searchString = `https://api.brewerydb.com/v2/beers?abv=${this.props.abvValue}&key=71adb5730d8b61f38b3894fa400f85a7`;
     // console.log(this.props.typeid);
-    console.log('ABV ', searchString);
+    // console.log(searchString);
     fetch(searchString).then((response) => response.json())
     .then((responseText) => {
       this.setState({
