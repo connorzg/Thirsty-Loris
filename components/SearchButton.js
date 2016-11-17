@@ -11,7 +11,7 @@ export default class SearchButton extends Component {
     return (
       <View style={styles.searchButton}>
         <TouchableOpacity onPress={this.props.search}>
-          <Text>Search</Text>
+          <Text style={styles.searchButtonText}>Search</Text>
         </TouchableOpacity>
       </View>
     )
@@ -26,5 +26,8 @@ var styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  searchButtonText: {
+    fontFamily: 'Raleway'
   }
 })

@@ -31,8 +31,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingVertical: 10,
-    paddingHorizontal: 5,
-    backgroundColor: '#c34517'
+    paddingHorizontal: 5
   },
   nav: {
     paddingVertical: 14,
@@ -44,6 +43,6 @@ var styles = StyleSheet.create({
   },
   navText: {
     color: '#c34517',
-    fontWeight: 'bold'
+    fontFamily: 'Raleway-bold'
   }
 })
