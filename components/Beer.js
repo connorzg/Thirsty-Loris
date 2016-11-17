@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   buttonContainer:{
     flex: 1,
     padding: 10/PixelRatio.get(),
-    minHeight: 150/PixelRatio.get(),
+    minHeight: 200/PixelRatio.get(),
     borderColor: '#cac9cf',
     borderWidth: 1,
     flexDirection: 'row',
