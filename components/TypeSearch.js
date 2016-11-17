@@ -50,7 +50,7 @@ export default class TypeSearch extends Component{
     if (this.state.styleId === '0'){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<TypeList typeid={this.state.styleId} />);
+      return (<TypeList navigator={this.props.navigator} typeid={this.state.styleId} />);
     }
 
   }

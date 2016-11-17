@@ -15,9 +15,12 @@ import {ListView} from 'realm/react-native';
 import BeerInfo from './BeerInfo.js';
 
 export default class Beer extends Component {
-
+  constructor(props){
+    super(props);
+    console.log(this.props.navigator);
+  }
   _beerPress() {
-    console.log(this.props.beerObject);
+    //console.log(this.props.beerObject);
     this.props.navigator.push({
       title: 'Beer Info',
       component: BeerInfo,
@@ -28,14 +31,25 @@ export default class Beer extends Component {
   }
 
   render() {
-    //console.log(this.props.beerObject);
+    console.log(this.props.beerObject);
     let imgUrl = require('../images/Beer-icon.png');
-    if (this.props.beerObject.labels !== undefined){
+    if (this.props.beerObject.labels){
       imgUrl = {uri: this.props.beerObject.labels.large};
     } else {
       imgUrl = require('../images/Beer-icon.png');
     }
-    var breweryName = this.props.beerObject.breweries[0].name;
+    var breweryName;
+    if (!this.props.beerObject.breweries || this.props.beerObject.breweries === null) {
+      var breweryName = '';
+    } else {
+      var breweryName = this.props.beerObject.breweries[0].name + " Brewery";
+    }
+    var typeName;
+    if (!this.props.beerObject.style || this.props.beerObject.style === null) {
+      var typeName = '';
+    } else {
+      var typeName = "Type: " + this.props.beerObject.style.name;
+    }
     return(
       <TouchableOpacity onPress={() => this._beerPress()}>
       <View style={styles.buttonContainer}>
@@ -47,8 +61,8 @@ export default class Beer extends Component {
         </View>
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{this.props.beerObject.name}</Text>
-          <Text style={styles.info}>{breweryName} Brewery</Text>
-          <Text style={styles.info}>Type: {this.props.beerObject.style.category.name}</Text>
+          <Text style={styles.info}>{breweryName}</Text>
+          <Text style={styles.info}>{typeName}</Text>
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.abvContainer}>
@@ -68,7 +82,7 @@ const styles = StyleSheet.create({
   buttonContainer:{
     flex: 1,
     padding: 10/PixelRatio.get(),
-    minHeight: 150/PixelRatio.get(),
+    minHeight: 200/PixelRatio.get(),
     borderColor: '#cac9cf',
     borderWidth: 1,
     flexDirection: 'row',

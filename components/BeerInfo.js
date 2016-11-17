@@ -80,7 +80,13 @@ export default class BeerInfo extends Component {
       this.props.beerObject.description = "No description found"
     }
 
-    console.log(imgUrl);
+    var typeName;
+    if (!beer.style || beer.style.name === null) {
+      var typeName = '';
+    } else {
+      var typeName = "Type: " + beer.style.name;
+    }
+
     console.log(beer);
     return (
       <View>
@@ -89,7 +95,7 @@ export default class BeerInfo extends Component {
           <Image style={styles.image} source={imgUrl}/>
           <View style={styles.infoText}>
             <Text style={styles.name}>{beer.name}</Text>
-            <Text style={styles.type}>{beer.style.name}</Text>
+            <Text style={styles.type}>{typeName}</Text>
             <Text style={styles.num}>ABV: {beer.abv}</Text>
             <Text style={styles.num}>IBU: {beer.ibu}</Text>
           </View>
@@ -104,7 +110,6 @@ export default class BeerInfo extends Component {
         <TouchableOpacity onPress={this._addTried}>
           <Text>Add To Tried</Text>
         </TouchableOpacity>
-
       </View>
     )
   }
