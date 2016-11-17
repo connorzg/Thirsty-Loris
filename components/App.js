@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  Image,
   StyleSheet,
   View,
   TouchableHighlight,
@@ -35,7 +36,8 @@ export default class App extends Component {
 
     this.state = {
       searchTerm: '',
-      dropdownTerm: 'Beer'
+      dropdownTerm: 'Beer',
+      hideNavBar: true
     }
     this._nearMePress = this._nearMePress.bind(this)
     this._savedPress = this._savedPress.bind(this)
@@ -136,15 +138,17 @@ export default class App extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <View style={styles.topHalf}></View>
-        <View style={styles.bottomHalf}>
-          <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText}/>
-          <Dropdown handleSearch={this._handleDropdownSelect} selectedValue={this.state.dropdownTerm}/>
-          <SearchButton search={this._handleSearchSubmit}/>
-        </View>
-        <View>
-          <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
-        </View>
+        <Image source={require('../images/BeerBackground.png')} style={styles.backgroundImage}>
+          <View style={styles.topHalf}></View>
+          <View style={styles.bottomHalf}>
+            <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText}/>
+            <Dropdown handleSearch={this._handleDropdownSelect} selectedValue={this.state.dropdownTerm}/>
+            <SearchButton search={this._handleSearchSubmit}/>
+          </View>
+          <View style={styles.nav}>
+            <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
+          </View>
+        </Image>
       </View>
     )
   }
@@ -155,12 +159,22 @@ var styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgb(239,179,72)'
   },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    height: null,
+    width: null
+  },
   topHalf: {
-    flex: 6
+    flex: 8
   },
   bottomHalf: {
-    flex: 5,
+    flex: 3,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingBottom: 30
+  },
+  nav: {
+    flex: 1
   }
 })
