@@ -14,13 +14,12 @@ export default class Dropdown extends Component{
       <View style={styles.dropdownContainer}>
         <PickerIOS
         style={styles.dropdown}
-        selectedValue={'Beer'}
         onValueChange={this.props.handleSearch}
-        // selectedValue={this.props.handleSearch}
+        selectedValue={this.props.selectedValue}
         >
-          <PickerIOS.Item label="Beer" value="Beer" />
-          <PickerIOS.Item label="Brewery" value="Brewery" />
           <PickerIOS.Item label="ABV" value="ABV" />
+          <PickerIOS.Item label="Brewery" value="Brewery" />
+          <PickerIOS.Item label="Beer" value="Beer" />
           <PickerIOS.Item label="Location" value="Location" />
         </PickerIOS>
       </View>
@@ -29,12 +28,7 @@ export default class Dropdown extends Component{
 }
 
 var styles = StyleSheet.create({
-  searchBar: {
-    borderWidth: 1,
-    borderColor: 'black',
-    color: 'white',
-    backgroundColor: 'white',
-  },
   dropdownContainer: {
+    width: 83
   }
 })
