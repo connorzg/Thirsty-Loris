@@ -54,6 +54,7 @@ export default class LocationList extends Component{
       <View>
         <BeerList
           beers={this.state.beers}
+          navigator={this.props.navigator}
         />
       </View>
     )
