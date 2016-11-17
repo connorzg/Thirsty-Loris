@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-  Picker,
+  PickerIOS,
   PixelRatio,
   StyleSheet,
   Text,
@@ -12,16 +12,17 @@ export default class Dropdown extends Component{
   render(){
     return(
       <View style={styles.dropdownContainer}>
-        <Picker
+        <PickerIOS
         style={styles.dropdown}
+        selectedValue={'Beer'}
         onValueChange={this.props.handleSearch}
         // selectedValue={this.props.handleSearch}
         >
-          <Picker.Item label="Beer" value="Beer" />
-          <Picker.Item label="Brewery" value="Brewery" />
-          <Picker.Item label="ABV" value="ABV" />
-          <Picker.Item label="Location" value="Location" />
-        </Picker>
+          <PickerIOS.Item label="Beer" value="Beer" />
+          <PickerIOS.Item label="Brewery" value="Brewery" />
+          <PickerIOS.Item label="ABV" value="ABV" />
+          <PickerIOS.Item label="Location" value="Location" />
+        </PickerIOS>
       </View>
     )
   }
