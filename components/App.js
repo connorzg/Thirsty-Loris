@@ -11,6 +11,7 @@ import {ListView} from 'realm/react-native';
 import realm from '../utils/realm';
 import axios from 'axios';
 import SearchBar from './SearchBar.js';
+import SearchButton from './SearchButton.js';
 import Dropdown from './Dropdown.js';
 import NavBar from './NavBar.js';
 import CityLocation from './CityLocation.js';
@@ -34,7 +35,7 @@ export default class App extends Component {
 
     this.state = {
       searchTerm: '',
-      dropdownTerm: ''
+      dropdownTerm: 'Beer'
     }
     this._nearMePress = this._nearMePress.bind(this)
     this._savedPress = this._savedPress.bind(this)
@@ -135,9 +136,15 @@ export default class App extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText}/>
-        <Dropdown handleSearch={this._handleDropdownSelect}/>
-        <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
+        <View style={styles.topHalf}></View>
+        <View style={styles.bottomHalf}>
+          <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText}/>
+          <Dropdown handleSearch={this._handleDropdownSelect} selectedValue={this.state.dropdownTerm}/>
+          <SearchButton search={this._handleSearchSubmit}/>
+        </View>
+        <View>
+          <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
+        </View>
       </View>
     )
   }
@@ -145,7 +152,15 @@ export default class App extends Component {
 
 var styles = StyleSheet.create({
   container: {
-    flex: 10,
+    flex: 1,
     backgroundColor: 'rgb(239,179,72)'
+  },
+  topHalf: {
+    flex: 6
+  },
+  bottomHalf: {
+    flex: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })

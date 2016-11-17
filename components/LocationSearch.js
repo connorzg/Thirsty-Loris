@@ -31,6 +31,7 @@ export default class LocationSearch extends Component{
       if (responseText.data.length > 0) {
         let newLocationId = responseText.data[2].id;
         let newLocationName = responseText.data[2].name;
+        console.log(searchString);
         this.setState({
           searchTerm: newLocationName,
           locationId: newLocationId

@@ -12,8 +12,11 @@ export default class SearchBar extends Component{
   render(){
     return(
       <View style={styles.searchContainer}>
-        <TextInput placeholder="hello" style={styles.searchBar}
-        onSubmitEditing={this.props.searchBarSubmit} onChangeText={this.props.onChangeText}/>
+        <TextInput
+        placeholder="Tap to Search"
+        style={styles.searchBar}
+        onSubmitEditing={this.props.searchBarSubmit} onChangeText={this.props.onChangeText}
+        onPress={this.props.clearText}/>
       </View>
     )
   }
@@ -21,11 +24,18 @@ export default class SearchBar extends Component{
 
 var styles = StyleSheet.create({
   searchContainer: {
-    flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 100,
-    borderRadius: 5
+    width: 115,
+    borderRadius: 5,
+    height: 30,
+    paddingLeft: 5
+  },
+  searchBar: {
+    flex: 1,
+    height: 30,
+    width: 115,
+    color: '#c34517'
   }
 })
