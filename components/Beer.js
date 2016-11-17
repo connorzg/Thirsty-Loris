@@ -28,9 +28,9 @@ export default class Beer extends Component {
   }
 
   render() {
-    //console.log(this.props.beerObject);
+    console.log(this.props.beerObject);
     let imgUrl = require('../images/Beer-icon.png');
-    if (this.props.beerObject.labels !== undefined){
+    if (this.props.beerObject.labels){
       imgUrl = {uri: this.props.beerObject.labels.large};
     } else {
       imgUrl = require('../images/Beer-icon.png');
