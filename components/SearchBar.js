@@ -14,6 +14,7 @@ export default class SearchBar extends Component{
       <View style={styles.searchContainer}>
         <TextInput
         placeholder="Tap to Search"
+        value={this.props.value}
         style={styles.searchBar}
         onSubmitEditing={this.props.searchBarSubmit} onChangeText={this.props.onChangeText}
         onPress={this.props.clearText}/>

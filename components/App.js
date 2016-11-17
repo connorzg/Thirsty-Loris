@@ -49,6 +49,7 @@ export default class App extends Component {
     this._onChangeText = this._onChangeText.bind(this)
     this._handleSearchSubmit = this._handleSearchSubmit.bind(this)
     this._handleDropdownSelect = this._handleDropdownSelect.bind(this)
+    this._resetSearch = this._resetSearch.bind(this)
   }
 
   _nearMePress() {
@@ -71,7 +72,11 @@ export default class App extends Component {
       component: TriedList
     })
   }
-
+  _resetSearch() {
+    this.setState({
+      searchTerm: ''
+    })
+  }
   _typeSearch() {
     this.props.navigator.push({
       title: this.state.searchTerm ,
@@ -80,6 +85,7 @@ export default class App extends Component {
         type: this.state.searchTerm
       }
     })
+    this._resetSearch()
   }
 
   _brewerySearch() {
@@ -90,6 +96,7 @@ export default class App extends Component {
         brewery: this.state.searchTerm
       }
     })
+    this._resetSearch()
   }
 
   _ABVSearch() {
@@ -100,6 +107,7 @@ export default class App extends Component {
         abvvalue: this.state.searchTerm
       }
     })
+    this._resetSearch()
   }
 
   _locationSearch() {
@@ -110,6 +118,7 @@ export default class App extends Component {
         location: this.state.searchTerm
       }
     })
+    this._resetSearch()
   }
 
   _onChangeText(searchTerm) {
@@ -141,7 +150,7 @@ export default class App extends Component {
         <Image source={require('../images/BeerBackground.png')} style={styles.backgroundImage}>
           <View style={styles.topHalf}></View>
           <View style={styles.bottomHalf}>
-            <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText}/>
+            <SearchBar searchBarSubmit={this._handleSearchSubmit} onChangeText={this._onChangeText} value={this.state.searchTerm}/>
             <Dropdown handleSearch={this._handleDropdownSelect} selectedValue={this.state.dropdownTerm}/>
             <SearchButton search={this._handleSearchSubmit}/>
           </View>
