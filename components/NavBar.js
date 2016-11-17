@@ -30,10 +30,13 @@ var styles = StyleSheet.create({
   navContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginBottom: 15
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    backgroundColor: '#c34517'
   },
   nav: {
-    padding: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 25,
     backgroundColor: 'white',
     borderRadius: 5,
     justifyContent: 'center',

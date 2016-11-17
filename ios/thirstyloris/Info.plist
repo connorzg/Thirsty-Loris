@@ -38,6 +38,14 @@
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Raleway-Bold.ttf</string>
+		<string>Raleway-Regular.ttf</string>
+		<string>Raleway-Medium.ttf</string>
+		<string>Economica-Regular-OTF.otf</string>
+		<string>Economica-Bold-OTF.otf</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

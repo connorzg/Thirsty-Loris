@@ -23,8 +23,10 @@ import SavedList from './SavedList.js';
 import RandomList from './RandomList.js';
 import TypeSearch from './TypeSearch.js';
 
-
-
+// Amber- #c34517
+// Blonde- #f7b20a
+// Foam- #cac9cf
+// Glass- #ffffff
 
 export default class App extends Component {
   constructor(props) {
@@ -32,7 +34,7 @@ export default class App extends Component {
 
     this.state = {
       searchTerm: '',
-      dropdownTerm: 'Beer'
+      dropdownTerm: ''
     }
     this._nearMePress = this._nearMePress.bind(this)
     this._savedPress = this._savedPress.bind(this)
@@ -66,6 +68,7 @@ export default class App extends Component {
       component: TriedList
     })
   }
+
   _typeSearch() {
     this.props.navigator.push({
       title: this.state.searchTerm ,
@@ -75,6 +78,7 @@ export default class App extends Component {
       }
     })
   }
+
   _brewerySearch() {
     this.props.navigator.push({
       title: this.state.searchTerm ,
@@ -84,6 +88,7 @@ export default class App extends Component {
       }
     })
   }
+
   _ABVSearch() {
     this.props.navigator.push({
       title: this.state.searchTerm ,
@@ -93,6 +98,7 @@ export default class App extends Component {
       }
     })
   }
+
   _locationSearch() {
     this.props.navigator.push({
       title: this.state.searchTerm ,
@@ -125,7 +131,6 @@ export default class App extends Component {
     })
     console.log(this.state.dropdownTerm);
   }
-
 
   render() {
     return(

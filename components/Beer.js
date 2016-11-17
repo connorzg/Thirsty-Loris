@@ -17,7 +17,7 @@ import BeerInfo from './BeerInfo.js';
 export default class Beer extends Component {
 
   _beerPress() {
-    // console.log(this.props.beerObject);
+    console.log(this.props.beerObject);
     this.props.navigator.push({
       title: 'Beer Info',
       component: BeerInfo,
@@ -28,11 +28,11 @@ export default class Beer extends Component {
   }
 
   render() {
-    let imgUrl = 'https://facebook.github.io/react/img/logo_og.png';
+    let imgUrl = require('../images/Beer-icon.png');
     if (this.props.beerObject.labels !== undefined){
-      imgUrl = this.props.beerObject.labels.large;
+      imgUrl = {uri: this.props.beerObject.labels.large};
     } else {
-      imgUrl = 'https://facebook.github.io/react/img/logo_og.png';
+      imgUrl = require('../images/Beer-icon.png');
     }
     //console.log(this.props.beerObject);
     return(
@@ -41,7 +41,7 @@ export default class Beer extends Component {
         <View style={styles.imageContainer}>
           <Image
           style={styles.beerImage}
-          source={{uri: imgUrl}}
+          source={imgUrl}
           />
         </View>
         <View style={styles.contentContainer}>

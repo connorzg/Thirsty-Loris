@@ -40,6 +40,7 @@ export default class TriedList extends Component {
         <BeerList navigator={this.props.navigator}
           beers={this.state.beers}
         />
+        <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/>
       </View>
     )
   }

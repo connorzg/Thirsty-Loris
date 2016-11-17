@@ -12,6 +12,7 @@ import {ListView} from 'realm/react-native';
 import Beer from './Beer.js';
 import BeerList from './BeerList.js';
 import axios from 'axios';
+import NavBar from './NavBar.js'
 
 export default class RandomList extends Component {
   constructor(props){
@@ -41,6 +42,7 @@ export default class RandomList extends Component {
           navigator={this.props.navigator}
           beers={this.state.beers}
         />
+        {/* <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/> */}
       </View>
     )
   }
