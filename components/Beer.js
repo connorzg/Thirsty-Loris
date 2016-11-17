@@ -15,9 +15,12 @@ import {ListView} from 'realm/react-native';
 import BeerInfo from './BeerInfo.js';
 
 export default class Beer extends Component {
-
+  constructor(props){
+    super(props);
+    console.log(this.props.navigator);
+  }
   _beerPress() {
-    console.log(this.props.beerObject);
+    //console.log(this.props.beerObject);
     this.props.navigator.push({
       title: 'Beer Info',
       component: BeerInfo,
