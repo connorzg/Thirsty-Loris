@@ -28,38 +28,34 @@ export default class Beer extends Component {
   }
 
   render() {
+    //console.log(this.props.beerObject);
     let imgUrl = require('../images/Beer-icon.png');
     if (this.props.beerObject.labels !== undefined){
       imgUrl = {uri: this.props.beerObject.labels.large};
     } else {
       imgUrl = require('../images/Beer-icon.png');
     }
-    var breweryName = this.props.beerObject.breweries[0].name
-    // if (this.props.beerObject.breweries.length > 0) {
-    //   breweryName = this.props.beerObject.breweries[0].name;
-    // } else {
-    //   breweryName = "";
-    // }
-    //console.log(breweryName);
+    var breweryName = this.props.beerObject.breweries[0].name;
     return(
       <TouchableOpacity onPress={() => this._beerPress()}>
       <View style={styles.buttonContainer}>
         <View style={styles.imageContainer}>
-          <Image
-          style={styles.beerImage}
-          source={imgUrl}
-          />
+            <Image
+            style={styles.beerImage}
+            source={imgUrl}
+            />
         </View>
         <View style={styles.contentContainer}>
-          <Text>{this.props.beerObject.name}</Text>
-          <Text>{breweryName}</Text>
+          <Text style={styles.title}>{this.props.beerObject.name}</Text>
+          <Text style={styles.info}>{breweryName} Brewery</Text>
+          <Text style={styles.info}>Type: {this.props.beerObject.style.category.name}</Text>
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.abvContainer}>
-            <Text>ABV: {this.props.beerObject.abv} %</Text>
+            <Text style={styles.info}>ABV: {this.props.beerObject.abv} %</Text>
           </View>
           <View style={styles.ibuContainer}>
-            <Text>IBU: {this.props.beerObject.ibu}</Text>
+            <Text style={styles.info}>IBU: {this.props.beerObject.ibu}</Text>
           </View>
         </View>
       </View>
@@ -71,13 +67,16 @@ export default class Beer extends Component {
 const styles = StyleSheet.create({
   buttonContainer:{
     flex: 1,
-    height: 150/PixelRatio.get(),
+    padding: 10/PixelRatio.get(),
+    minHeight: 150/PixelRatio.get(),
+    borderColor: '#cac9cf',
+    borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'flex-start',
     padding: 5/PixelRatio.get(),
     justifyContent: 'flex-start',
     marginBottom: 5/PixelRatio.get(),
-    backgroundColor: '#dedede'
+    backgroundColor: '#ffffff'
 
   },
   imageContainer:{
@@ -85,7 +84,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     padding: 5/PixelRatio.get(),
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: 100,
+    borderBottomColor: '#f7b20a',
+    borderBottomWidth: 10,
 
   },
   contentContainer:{
@@ -98,20 +100,34 @@ const styles = StyleSheet.create({
   },
   infoContainer:{
     flex: 4,
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   abvContainer:{
     flex: 5,
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderColor: '#cac9cf',
+    padding: 5/PixelRatio.get(),
+    borderBottomWidth: 2,
   },
   ibuContainer:{
     flex: 5,
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 5/PixelRatio.get(),
   },
   beerImage:{
     width: 120/PixelRatio.get(),
     height: 120/PixelRatio.get()
+  },
+  title:{
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    fontFamily: 'ECONOMICA'
+  },
+  info:{
+    fontFamily: 'Raleway',
+    marginBottom: 5,
   }
 })
