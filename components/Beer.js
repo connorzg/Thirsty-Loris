@@ -37,11 +37,16 @@ export default class Beer extends Component {
     }
     var breweryName;
     if (this.props.beerObject.breweries) {
-      var breweryName = this.props.beerObject.breweries[0].name;
+      var breweryName = this.props.beerObject.breweries[0].name + " Brewery";
     } else {
       var breweryName = '';
     }
-
+    var typeName;
+    if (this.props.beerObject.style) {
+      var typeName = "Type: " + this.props.beerObject.style.name;
+    } else {
+      var typeName = '';
+    }
     return(
       <TouchableOpacity onPress={() => this._beerPress()}>
       <View style={styles.buttonContainer}>
@@ -53,8 +58,8 @@ export default class Beer extends Component {
         </View>
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{this.props.beerObject.name}</Text>
-          <Text style={styles.info}>{breweryName} Brewery</Text>
-          <Text style={styles.info}>Type: {this.props.beerObject.style.name}</Text>
+          <Text style={styles.info}>{breweryName}</Text>
+          <Text style={styles.info}>{typeName}</Text>
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.abvContainer}>
