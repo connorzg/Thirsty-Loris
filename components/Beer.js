@@ -36,16 +36,16 @@ export default class Beer extends Component {
       imgUrl = require('../images/Beer-icon.png');
     }
     var breweryName;
-    if (this.props.beerObject.breweries) {
-      var breweryName = this.props.beerObject.breweries[0].name + " Brewery";
-    } else {
+    if (!this.props.beerObject.breweries || this.props.beerObject.breweries === null) {
       var breweryName = '';
+    } else {
+      var breweryName = this.props.beerObject.breweries[0].name + " Brewery";
     }
     var typeName;
-    if (this.props.beerObject.style) {
-      var typeName = "Type: " + this.props.beerObject.style.name;
-    } else {
+    if (!this.props.beerObject.style || this.props.beerObject.style === null) {
       var typeName = '';
+    } else {
+      var typeName = "Type: " + this.props.beerObject.style.name;
     }
     return(
       <TouchableOpacity onPress={() => this._beerPress()}>
