@@ -52,7 +52,7 @@ export default class LocationSearch extends Component{
     if (this.state.locationId === ''){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<BreweryList breweryid={this.state.locationId} />);
+      return (<BreweryList navigator={this.props.navigator} breweryid={this.state.locationId} />);
     }
 
   }
