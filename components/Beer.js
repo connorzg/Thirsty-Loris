@@ -34,7 +34,13 @@ export default class Beer extends Component {
     } else {
       imgUrl = require('../images/Beer-icon.png');
     }
-    //console.log(this.props.beerObject);
+    var breweryName = this.props.beerObject.breweries[0].name
+    // if (this.props.beerObject.breweries.length > 0) {
+    //   breweryName = this.props.beerObject.breweries[0].name;
+    // } else {
+    //   breweryName = "";
+    // }
+    //console.log(breweryName);
     return(
       <TouchableOpacity onPress={() => this._beerPress()}>
       <View style={styles.buttonContainer}>
@@ -46,6 +52,7 @@ export default class Beer extends Component {
         </View>
         <View style={styles.contentContainer}>
           <Text>{this.props.beerObject.name}</Text>
+          <Text>{breweryName}</Text>
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.abvContainer}>
