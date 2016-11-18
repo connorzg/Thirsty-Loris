@@ -18,12 +18,12 @@ more than one brewery on location
 * User can place beers they have tried into a tasted section
 
 # **Wireframe:**
-![alt tag](../images/framework1.jpg)
-![alt tag](../images/framework2.jpg)
-![alt tag](../images/framework3.jpg)
-![alt tag](../images/framework4.jpg)
-![alt tag](../images/framework5.jpg)
-![alt tag](../images/framework6.jpg)
+![](../images/framework1.jpg)
+![framework picture](./images/framework2.jpg)
+![framework picture](./images/framework3.jpg)
+![framework picture](./images/framework4.jpg)
+![framework picture](./images/framework5.jpg)
+![framework picture](./images/framework6.jpg)
 
 # **Future goals:**
 * Include search near me,
