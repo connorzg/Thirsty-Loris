@@ -28,6 +28,8 @@ var styles = StyleSheet.create({
     alignItems: 'center'
   },
   searchButtonText: {
-    fontFamily: 'Raleway'
+    fontFamily: 'Raleway',
+    color: '#c34517',
+    fontWeight: 'bold'
   }
 })

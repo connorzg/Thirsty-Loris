@@ -26,8 +26,9 @@ export default class thirstyloris extends Component {
         style={styles.container}
         initialRoute={{
           barTintColor: '#f7b20a',
-          title: 'Beer Traveler',
-          component: App
+          title: 'Home',
+          component: App,
+          navigationBarHidden: true
         }}
         renderScene={
           this.navigatorRenderScene
@@ -37,7 +38,7 @@ export default class thirstyloris extends Component {
   }
   navigatorRenderScene(route, navigator) {
     switch (route.title) {
-      case 'Beer Traveler':
+      case 'Home':
         return (<App navigator={navigator} title='Home'/>);
       case 'Tried List':
         return (<TriedList navigator={navigator} title='Tried List'/>);

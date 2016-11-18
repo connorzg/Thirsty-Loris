@@ -39,6 +39,7 @@ export default class App extends Component {
       dropdownTerm: 'Beer',
       hideNavBar: true
     }
+    
     this._nearMePress = this._nearMePress.bind(this)
     this._savedPress = this._savedPress.bind(this)
     this._tastedPress = this._tastedPress.bind(this)
