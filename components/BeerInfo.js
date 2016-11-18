@@ -36,12 +36,12 @@ export default class BeerInfo extends Component {
 
       let saved = realm.create('Beer', {
         id: this.props.beerObject.id,
-        brewery: this.props.beerObject.breweries[0].name,
+        // brewery: this.props.beerObject.breweries[0].name,
         name: this.props.beerObject.name,
-        image: (this.props.beerObject.labels.large || this.props.beerObject.labels.medium || ''),
+        // labels: (this.props.beerObject.labels.large || this.props.beerObject.labels.medium || ''),
         abv: this.props.beerObject.abv,
         ibu: this.props.beerObject.ibu,
-        type: this.props.beerObject.style.name,
+        // type: this.props.beerObject.style.name,
         description: this.props.beerObject.description,
         list: 'saved'
       });
@@ -59,12 +59,12 @@ export default class BeerInfo extends Component {
     realm.write(() => {
       let saved = realm.create('Beer', {
         id: this.props.beerObject.id,
-        brewery: this.props.beerObject.breweries[0].name,
+        // brewery: this.props.beerObject.breweries[0].name,
         name: this.props.beerObject.name,
-        image: (this.props.beerObject.labels.large || this.props.beerObject.labels.medium || ''),
+        // labels: (this.props.beerObject.labels.large || this.props.beerObject.labels.medium || ''),
         abv: this.props.beerObject.abv,
         ibu: this.props.beerObject.ibu || '',
-        type: this.props.beerObject.style.name,
+        // type: this.props.beerObject.style.name,
         description: this.props.beerObject.description,
         list: 'tried'
       });
