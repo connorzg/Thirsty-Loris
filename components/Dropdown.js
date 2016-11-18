@@ -34,7 +34,6 @@ export default class Dropdown extends Component{
 
 var styles = StyleSheet.create({
   dropdownContainer: {
-    width: 100,
-    bottom: 20
+    width: 100
   }
 })
