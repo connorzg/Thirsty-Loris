@@ -22,7 +22,7 @@ export default class Beer extends Component {
   _beerPress() {
     this.props.navigator.push({
       barTintColor: '#f7b20a',
-      title: 'Beer Info',
+      title: this.props.beerObject.name,
       component: BeerInfo,
       rightButtonTitle: 'Home',
       onRightButtonPress: () => this.props.navigator.popToTop(),
@@ -51,6 +51,7 @@ export default class Beer extends Component {
     } else {
       var typeName = "Type: " + this.props.beerObject.style.name;
     }
+
     return(
       <TouchableOpacity onPress={() => this._beerPress()}>
       <View style={styles.buttonContainer}>

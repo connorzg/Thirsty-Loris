@@ -19,7 +19,7 @@ export default class Dropdown extends Component{
         >
           <PickerIOS.Item label="ABV" value="ABV" />
           <PickerIOS.Item label="Brewery" value="Brewery" />
-          <PickerIOS.Item label="Beer" value="Beer" />
+          <PickerIOS.Item label="Type" value="Beer" />
           <PickerIOS.Item label="Location" value="Location" />
         </PickerIOS>
       </View>

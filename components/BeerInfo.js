@@ -8,15 +8,20 @@ import {
   Switch,
   Text,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import {ListView} from 'realm/react-native';
 import NavBar from './NavBar';
 import realm from '../utils/realm.js';
 
 export default class BeerInfo extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      beerName: this.props.beerObject.name
+    }
 
     this._addSaved = this._addSaved.bind(this);
     this._addTried = this._addTried.bind(this);
@@ -74,33 +79,39 @@ export default class BeerInfo extends Component {
   render() {
     const beer = this.props.beerObject;
 
-    if (this.props.beerObject.labels) {
-      imgUrl = {
-        uri: this.props.beerObject.labels.large
-      }
-    } else {
-      imgUrl = require('../images/Beer-icon.png');
-    }
-
     if (!this.props.beerObject.description) {
       this.props.beerObject.description = "No description found"
     }
 
+    if (this.props.beerObject.labels){
+      imgUrl = {uri: this.props.beerObject.labels.large};
+    } else {
+      imgUrl = require('../images/Beer-icon.png');
+    }
+
+    var breweryName;
+    if (!this.props.beerObject.breweries || this.props.beerObject.breweries === null) {
+      var breweryName = '';
+    } else {
+      var breweryName = this.props.beerObject.breweries[0].name + " Brewery";
+    }
+
     var typeName;
-    if (!beer.style || beer.style.name === null) {
+    if (!this.props.beerObject.style || this.props.beerObject.style === null) {
       var typeName = '';
     } else {
-      var typeName = "Type: " + beer.style.name;
+      var typeName = "Type: " + this.props.beerObject.style.name;
     }
 
     console.log(beer);
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
           <View style={styles.infoRow}>
             <Image style={styles.image} source={imgUrl}/>
             <View style={styles.infoText}>
               <Text style={styles.name}>{beer.name}</Text>
-              <Text style={styles.type}>{typeName}</Text>
+              <Text style={styles.info}>{breweryName}</Text>
+              <Text style={styles.info}>{typeName}</Text>
               <Text style={styles.num}>ABV: {beer.abv}</Text>
               <Text style={styles.num}>IBU: {beer.ibu}</Text>
             </View>
@@ -116,7 +127,7 @@ export default class BeerInfo extends Component {
               <Text style={styles.buttonText}>Add To Tried</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </ScrollView>
     )
   }
 }
@@ -125,23 +136,26 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-around',
-    marginTop: 100,
-    margin: 40,
+    margin: 30,
     alignItems: 'center'
   },
   image: {
-    width: 80,
-    height: 80,
-    marginRight: 35
+    right: 5,
+    width: 100,
+    height: 100,
+    marginRight: 10
   },
   infoRow: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    bottom: 20
   },
   num: {
-    fontFamily: 'Raleway'
+    fontFamily: 'Raleway',
+    fontWeight: '500'
   },
   description: {
-    fontFamily: 'Raleway'
+    fontFamily: 'Raleway',
+    fontWeight: '500'
   },
   button: {
     backgroundColor: '#c34517',
@@ -154,6 +168,16 @@ var styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontFamily: 'Raleway'
+    fontFamily: 'Raleway',
+    fontWeight: 'bold'
+  },
+  name: {
+    fontFamily: 'ECONOMICA',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  info: {
+    fontFamily: 'Raleway',
+    fontWeight: '500'
   }
 })
