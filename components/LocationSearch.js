@@ -16,43 +16,49 @@ export default class LocationSearch extends Component{
     super(props);
     this.state = {
       searchTerm: this.props.location,
-      locationId: ''
+      currentBrewery: [],
+      breweryCount: ''
     }
     this._showList = this._showList.bind(this);
   }
   _searchLocations(){
+    let currentBreweries = this.state.currentBrewery;
     var searchString =
    `https://api.brewerydb.com/v2/locations?locality=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
-    fetch(searchString, {
-      params: {
-      }
-    }).then((response) => response.json())
-    .then((responseText) => {
-      if (responseText.data.length > 0) {
-        let newLocationId = responseText.data[2].id;
-        let newLocationName = responseText.data[2].name;
-        console.log(searchString);
-        this.setState({
-          searchTerm: newLocationName,
-          locationId: newLocationId
-        })
-        //this._showList();
-      } else {
-        this.setState({
-          searchTerm: 'No results found.',
-          locationId: ''
-        })
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+   fetch(searchString, {
+     params: {
+     }
+   }).then((response) => response.json())
+   .then((responseText) => {
+     if (responseText.data.length > 0) {
+       let responseArray = responseText.data;
+       responseArray.map((responseitem, index) => {
+           currentBreweries.push(responseitem.id);
+         })
+       let breweryCount = currentBreweries.length;
+       this.setState({
+         currentBrewery: currentBreweries,
+         breweryCount: breweryCount
+       })
+     } else {
+       this.setState({
+         searchTerm: 'No results found.'
+       })
+     }
+   })
+   .catch(function (error) {
+     console.log(error);
+   });
   }
   _showList(){
-    if (this.state.locationId === ''){
+    if (this.state.currentBrewery.length < 1){
       return (<Text>Beers loading...</Text>);
     } else {
-      return (<BreweryList navigator={this.props.navigator} breweryid={this.state.locationId} />);
+      console.log("cow");
+      return (<BreweryList
+        navigator={this.props.navigator}
+        breweryid={this.state.currentBrewery}
+        brewerycount = {this.state.breweryCount} />);
     }
 
   }

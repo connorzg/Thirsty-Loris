@@ -15,25 +15,28 @@ export default class BrewerySearch extends Component{
     super(props);
     this.state = {
       searchTerm: this.props.brewery,
-      currentBrewery: '0'
+      currentBrewery: [],
+      breweryCount: ''
     }
     this._showList = this._showList.bind(this);
   }
   _searchBreweries(){
+    let currentBreweries = this.state.currentBrewery;
     var searchString = `https://api.brewerydb.com/v2/search?type=brewery&q=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
-    console.log('Brewery List ', searchString);
     fetch(searchString, {
       params: {
       }
     }).then((response) => response.json())
     .then((responseText) => {
-      //console.log(responseText.data);
       if (responseText.data.length > 0) {
-        let newBrewId = responseText.data[0].id;
-        let newBrewName = responseText.data[0].name;
+        let responseArray = responseText.data;
+        responseArray.map((responseitem, index) => {
+            currentBreweries.push(responseitem.id);
+          })
+        let breweryCount = currentBreweries.length;
         this.setState({
-          searchTerm: newBrewName,
-          currentBrewery: newBrewId
+          currentBrewery: currentBreweries,
+          breweryCount: breweryCount
         })
         //this._showList();
       } else {
@@ -47,12 +50,14 @@ export default class BrewerySearch extends Component{
     });
   }
   _showList(){
-    if (this.state.currentBrewery === '0'){
+    if (this.state.currentBrewery.length < 1){
       return (<Text>Beers loading...</Text>);
     } else {
+      //console.log(this.state.currentBrewery);
       return (<BreweryList
         navigator={this.props.navigator}
-        breweryid={this.state.currentBrewery} />);
+        breweryid={this.state.currentBrewery}
+        brewerycount = {this.state.breweryCount} />);
     }
 
   }
