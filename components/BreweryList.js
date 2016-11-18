@@ -54,6 +54,9 @@ export default class BreweryList extends Component{
   render(){
     return(
       <View>
+        <Text></Text>
+        <Text></Text>
+        <Text></Text>
         <BeerList
           navigator={this.props.navigator}
           beers={this.state.beers}
@@ -62,3 +65,9 @@ export default class BreweryList extends Component{
     )
   }
 }
+var styles = StyleSheet.create({
+
+  list: {
+    paddingTop: 100/PixelRatio.get(),
+  }
+})

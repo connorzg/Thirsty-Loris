@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     padding: 10/PixelRatio.get(),
     minHeight: 200/PixelRatio.get(),
     borderColor: '#cac9cf',
-    borderWidth: 1,
+    borderBottomWidth: 4,
     flexDirection: 'row',
     alignItems: 'flex-start',
     padding: 5/PixelRatio.get(),
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     padding: 5/PixelRatio.get(),
     justifyContent: 'center',
     height: 100,
-    borderBottomColor: '#f7b20a',
-    borderBottomWidth: 10,
+    borderBottomColor: '#c34517',
+    borderBottomWidth: 0,
 
   },
   contentContainer:{
