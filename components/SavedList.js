@@ -12,7 +12,7 @@ import {ListView} from 'realm/react-native';
 import Beer from './Beer.js';
 import BeerList from './BeerList.js';
 import axios from 'axios';
-import realm from '../utils/realm.js'
+import realm from '../utils/realm.js';
 
 export default class SavedList extends Component {
   constructor(props){
@@ -27,14 +27,12 @@ export default class SavedList extends Component {
     this.state = {
       beers: dataSource.cloneWithRows(savedBeer)
     }
-    //console.log(realm.objects('Beer'));
-    console.log(savedBeer);
   }
 
 
   render() {
     return(
-      <View>
+      <View style={{flex: 1}}>
         <BeerList
           navigator={this.props.navigator}
           beers={this.state.beers}

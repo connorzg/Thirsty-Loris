@@ -28,14 +28,14 @@ var styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 115,
+    width: 170,
     borderRadius: 5,
     height: 30
   },
   searchBar: {
     flex: 1,
     height: 30,
-    width: 115,
+    width: 170,
     color: '#c34517',
     textAlign: 'center',
     fontFamily: 'Raleway'

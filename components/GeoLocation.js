@@ -27,8 +27,6 @@ export default class GeoLocation extends Component{
        longitude = position.coords.longitude
        var currentLatitude = JSON.stringify(latitude);
        var currentLongitude = JSON.stringify(longitude);
-       console.log(currentLatitude);
-       console.log(currentLongitude);
        this.setState({
          currentLatitude: currentLatitude,
          currentLongitude: currentLongitude
@@ -48,7 +46,6 @@ export default class GeoLocation extends Component{
    }
    fetch('https://api.brewerydb.com/v2/beers?order=random&randomCount=10&key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
    .then((responseText) => {
-     console.log(responseText);
      this.setState({
        breweries: dataSource.cloneWithRows(responseText.data)
      })

@@ -39,6 +39,7 @@ export default class App extends Component {
       dropdownTerm: 'Beer',
       hideNavBar: true
     }
+    
     this._nearMePress = this._nearMePress.bind(this)
     this._savedPress = this._savedPress.bind(this)
     this._tastedPress = this._tastedPress.bind(this)
@@ -54,13 +55,15 @@ export default class App extends Component {
 
   _nearMePress() {
     this.props.navigator.push({
-      title: 'Random List',
+      barTintColor: '#f7b20a',
+      title: 'I\'m Feeling Lucky',
       component: RandomList
     })
   }
 
   _savedPress() {
     this.props.navigator.push({
+      barTintColor: '#f7b20a',
       title: 'Saved List',
       component: SavedList
     })
@@ -68,6 +71,7 @@ export default class App extends Component {
 
   _tastedPress() {
     this.props.navigator.push({
+      barTintColor: '#f7b20a',
       title: 'Tried List',
       component: TriedList
     })
@@ -79,6 +83,7 @@ export default class App extends Component {
   }
   _typeSearch() {
     this.props.navigator.push({
+      barTintColor: '#f7b20a',
       title: this.state.searchTerm ,
       component: TypeSearch,
       passProps: {
@@ -90,6 +95,7 @@ export default class App extends Component {
 
   _brewerySearch() {
     this.props.navigator.push({
+      barTintColor: '#f7b20a',
       title: this.state.searchTerm ,
       component: BrewerySearch,
       passProps: {
@@ -101,6 +107,7 @@ export default class App extends Component {
 
   _ABVSearch() {
     this.props.navigator.push({
+      barTintColor: '#f7b20a',
       title: this.state.searchTerm ,
       component: ABVSearch,
       passProps: {
@@ -112,6 +119,7 @@ export default class App extends Component {
 
   _locationSearch() {
     this.props.navigator.push({
+      barTintColor: '#f7b20a',
       title: this.state.searchTerm ,
       component: LocationSearch,
       passProps: {
@@ -141,7 +149,6 @@ export default class App extends Component {
     this.setState({
       dropdownTerm: selectedValue
     })
-    console.log(this.state.dropdownTerm);
   }
 
   render() {

@@ -26,10 +26,7 @@ export default class TypeList extends Component{
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
     })
-    https://api.brewerydb.com/v2/beers?key=71adb5730d8b61f38b3894fa400f85a7
     var searchString = `https://api.brewerydb.com/v2/beers?styleid=${this.props.typeid}&key=71adb5730d8b61f38b3894fa400f85a7`;
-    console.log(this.props.typeid);
-    console.log(searchString);
     fetch(searchString).then((response) => response.json())
     .then((responseText) => {
       this.setState({
