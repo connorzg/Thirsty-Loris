@@ -23,7 +23,6 @@ export default class BeerInfo extends Component {
   }
 
   _addSaved() {
-    // console.log('Save');
     realm.write(() => {
       if (!this.props.beerObject.labels)
         this.props.beerObject.labels = ''
@@ -32,7 +31,6 @@ export default class BeerInfo extends Component {
       if (!this.props.beerObject.ibu)
         this.props.beerObject.ibu = ''
 
-      console.log(this.props.beerObject);
 
       let saved = realm.create('Beer', {
         id: this.props.beerObject.id,
@@ -93,7 +91,6 @@ export default class BeerInfo extends Component {
       var typeName = "Type: " + beer.style.name;
     }
 
-    console.log(beer);
     return (
         <View style={styles.container}>
           <View style={styles.infoRow}>

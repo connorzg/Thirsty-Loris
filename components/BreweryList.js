@@ -30,7 +30,6 @@ export default class BreweryList extends Component{
     let newBeerData = [];
     for (var i = 0; i < this.props.brewerycount; i++) {
       var beersearchString = `https://api.brewerydb.com/v2/brewery/${this.props.breweryid[i]}/beers?key=71adb5730d8b61f38b3894fa400f85a7`;
-      console.log(beersearchString);
       fetch(beersearchString).then((response) => response.json())
       .then((responseText) => {
         if (responseText.data){
