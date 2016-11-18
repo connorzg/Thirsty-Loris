@@ -68,10 +68,12 @@ export default class Beer extends Component {
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.abvContainer}>
-            <Text style={styles.info}>ABV: {this.props.beerObject.abv} %</Text>
+            <Text style={styles.bold}>ABV: </Text>
+            <Text style={styles.info}> {this.props.beerObject.abv} %</Text>
           </View>
           <View style={styles.ibuContainer}>
-            <Text style={styles.info}>IBU: {this.props.beerObject.ibu}</Text>
+            <Text style={styles.bold}>IBU: </Text>
+            <Text style={styles.info}>{this.props.beerObject.ibu}</Text>
           </View>
         </View>
       </View>
@@ -110,6 +112,7 @@ const styles = StyleSheet.create({
     flex: 8,
     flexDirection: 'column',
     alignItems: 'flex-start',
+    justifyContent: 'center',
     padding: 5/PixelRatio.get(),
     justifyContent: 'flex-start',
 
@@ -120,16 +123,18 @@ const styles = StyleSheet.create({
   },
   abvContainer:{
     flex: 5,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     borderColor: '#cac9cf',
     padding: 5/PixelRatio.get(),
     borderBottomWidth: 2,
   },
   ibuContainer:{
     flex: 5,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     padding: 5/PixelRatio.get(),
   },
   beerImage:{
@@ -144,6 +149,10 @@ const styles = StyleSheet.create({
   },
   info:{
     fontFamily: 'Raleway',
+    marginBottom: 5,
+  },
+  bold: {
+    fontFamily: 'Raleway-bold',
     marginBottom: 5,
   }
 })
