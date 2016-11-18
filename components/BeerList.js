@@ -15,31 +15,16 @@ import axios from 'axios';
 export default class BeerList extends Component {
   constructor(props){
     super(props);
-    const dataSource = new ListView.DataSource({
-      rowHasChanged: (r1,r2) => r1 !== r2
-    })
-    this.state = {
-      beers: dataSource.cloneWithRows([])
-    }
-    fetch('https://api.brewerydb.com/v2/beers?order=random&randomCount=10&key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
-    .then((responseText) => {
-      console.log(responseText);
-      this.setState({
-        beers: dataSource.cloneWithRows(responseText.data)
-      })
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
   }
-
 
   render() {
     return(
       <View>
         <ListView
-          dataSource={this.state.beers}
-          renderRow={(rowData) => <Beer beerName={rowData} />}
+          navigator={this.props.navigator}
+          enableEmptySections={true}
+          dataSource={this.props.beers}
+          renderRow={(rowData) => <Beer navigator={this.props.navigator} beerObject={rowData} />}
         />
       </View>
     )

@@ -10,7 +10,7 @@ import {ListView} from 'realm/react-native';
 import Beer from './Beer.js';
 import BeerList from './BeerList.js';
 
-export default class BreweryList extends Component{
+export default class TypeList extends Component{
   constructor(props){
     super(props);
     const dataSource = new ListView.DataSource({
@@ -26,16 +26,15 @@ export default class BreweryList extends Component{
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
     })
-    var searchString = `https://api.brewerydb.com/v2/brewery/${this.props.breweryid}/beers?key=71adb5730d8b61f38b3894fa400f85a7`;
-    //console.log(this.props.breweryid);
+    https://api.brewerydb.com/v2/beers?key=71adb5730d8b61f38b3894fa400f85a7
+    var searchString = `https://api.brewerydb.com/v2/beers?styleid=${this.props.typeid}&key=71adb5730d8b61f38b3894fa400f85a7`;
+    console.log(this.props.typeid);
     console.log(searchString);
     fetch(searchString).then((response) => response.json())
     .then((responseText) => {
-      if (responseText.data) {
-        this.setState({
-          beers: dataSource.cloneWithRows(responseText.data)
-        })
-      }
+      this.setState({
+        beers: dataSource.cloneWithRows(responseText.data)
+      })
     })
     .catch(function (error) {
       console.log(error);

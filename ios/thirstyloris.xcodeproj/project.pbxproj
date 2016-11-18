@@ -23,6 +23,11 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		9BD263CC1DDE028B0077D2CD /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD263C91DDE01970077D2CD /* Raleway-Bold.ttf */; };
+		9BD263CD1DDE028B0077D2CD /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD263CA1DDE01970077D2CD /* Raleway-Medium.ttf */; };
+		9BD263CE1DDE028B0077D2CD /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD263CB1DDE01970077D2CD /* Raleway-Regular.ttf */; };
+		9BD263CF1DDE028B0077D2CD /* Economica-Bold-OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD263C71DDE017E0077D2CD /* Economica-Bold-OTF.otf */; };
+		9BD263D01DDE028B0077D2CD /* Economica-Regular-OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD263C81DDE017E0077D2CD /* Economica-Regular-OTF.otf */; };
 		ABA92A3D7CC348AB8F298D2B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A2051AE41F4FCE8A916CF9 /* libc++.tbd */; };
 		C4F1989A628548FEB8C15841 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 116214FD716449E8AAEE2219 /* libRealmReact.a */; };
 		D87C6E23D423429AA08F1E4C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2CDFE029F747C78692D516 /* libz.tbd */; };
@@ -189,6 +194,11 @@
 		38A2051AE41F4FCE8A916CF9 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		9BD263C71DDE017E0077D2CD /* Economica-Bold-OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Bold-OTF.otf"; sourceTree = "<group>"; };
+		9BD263C81DDE017E0077D2CD /* Economica-Regular-OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Economica-Regular-OTF.otf"; sourceTree = "<group>"; };
+		9BD263C91DDE01970077D2CD /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		9BD263CA1DDE01970077D2CD /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
+		9BD263CB1DDE01970077D2CD /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		AD2CDFE029F747C78692D516 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -305,6 +315,11 @@
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				9BD263C91DDE01970077D2CD /* Raleway-Bold.ttf */,
+				9BD263CA1DDE01970077D2CD /* Raleway-Medium.ttf */,
+				9BD263CB1DDE01970077D2CD /* Raleway-Regular.ttf */,
+				9BD263C71DDE017E0077D2CD /* Economica-Bold-OTF.otf */,
+				9BD263C81DDE017E0077D2CD /* Economica-Regular-OTF.otf */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -659,6 +674,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD263CC1DDE028B0077D2CD /* Raleway-Bold.ttf in Resources */,
+				9BD263CD1DDE028B0077D2CD /* Raleway-Medium.ttf in Resources */,
+				9BD263CE1DDE028B0077D2CD /* Raleway-Regular.ttf in Resources */,
+				9BD263CF1DDE028B0077D2CD /* Economica-Bold-OTF.otf in Resources */,
+				9BD263D01DDE028B0077D2CD /* Economica-Regular-OTF.otf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
