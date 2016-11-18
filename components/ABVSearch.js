@@ -24,7 +24,6 @@ export default class ABVSearch extends Component{
     let minAbv = Math.floor(searchAbv)
     let maxAbv = minAbv + 1;
     let totalAbv = minAbv.toString() + "," + maxAbv.toString();
-    //console.log(totalAbv);
 
     this.setState({
       abvValue: totalAbv
