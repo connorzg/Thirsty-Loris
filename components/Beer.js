@@ -21,15 +21,11 @@ export default class Beer extends Component {
   }
   _beerPress() {
     this.props.navigator.push({
-      barTintColor: '#c34517',
+      barTintColor: '#f7b20a',
       title: 'Beer Info',
       component: BeerInfo,
       rightButtonTitle: 'Home',
-      onRightButtonPress: () => this.props.navigator.push({
-        barTintColor: '#c34517',
-        title: '',
-        component: App,
-      }),
+      onRightButtonPress: () => this.props.navigator.popToTop(),
       passProps: {
         beerObject: this.props.beerObject
       }

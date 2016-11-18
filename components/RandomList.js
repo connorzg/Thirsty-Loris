@@ -53,7 +53,7 @@ export default class RandomList extends Component {
     return(
       <View style={{flex: 1}}>
         <View style={{flex: 1}}>
-          <Spinner color={'#c34517'} visible={this.state.visible} />
+          <Spinner overlayColor={'rgba(0,0,0,0.1)'} color={'#f7b20a'} visible={this.state.visible} />
         </View>
         <BeerList
           navigator={this.props.navigator}
