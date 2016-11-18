@@ -55,6 +55,7 @@ export default class TypeSearch extends Component{
       return (<Text>Beers loading...</Text>);
     } else {
       return (<TypeList
+        style={{flex: 1}}
         navigator={this.props.navigator}
         typeid={this.state.styleId} />);
     }

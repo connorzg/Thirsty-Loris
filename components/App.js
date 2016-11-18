@@ -39,7 +39,7 @@ export default class App extends Component {
       dropdownTerm: 'Beer',
       hideNavBar: true
     }
-    
+
     this._nearMePress = this._nearMePress.bind(this)
     this._savedPress = this._savedPress.bind(this)
     this._tastedPress = this._tastedPress.bind(this)
@@ -188,7 +188,7 @@ var styles = StyleSheet.create({
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 30
+    paddingBottom: 40
   },
   nav: {
     flex: 1

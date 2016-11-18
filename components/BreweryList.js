@@ -21,6 +21,7 @@ export default class BreweryList extends Component{
     }
     this._getBreweries = this._getBreweries.bind(this);
   }
+
   _getBreweries(){
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
@@ -49,6 +50,7 @@ export default class BreweryList extends Component{
   componentDidMount(){
     this._getBreweries();
   }
+
   render(){
     return(
       <View>
