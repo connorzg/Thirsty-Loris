@@ -19,12 +19,13 @@ import Beer from './components/Beer.js';
 import NavBar from './components/NavBar.js';
 
 export default class thirstyloris extends Component {
-
+//rgba(157,157,157,0.05)
   render() {
     return (
       <NavigatorIOS
         style={styles.container}
         initialRoute={{
+          barTintColor: '#f7b20a',
           title: 'Beer Traveler',
           component: App
         }}

@@ -21,13 +21,11 @@ export default class BrewerySearch extends Component{
   }
   _searchBreweries(){
     var searchString = `https://api.brewerydb.com/v2/search?type=brewery&q=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
-    console.log('Brewery List ', searchString);
     fetch(searchString, {
       params: {
       }
     }).then((response) => response.json())
     .then((responseText) => {
-      //console.log(responseText.data);
       if (responseText.data.length > 0) {
         let newBrewId = responseText.data[0].id;
         let newBrewName = responseText.data[0].name;
