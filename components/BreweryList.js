@@ -43,7 +43,7 @@ export default class BreweryList extends Component{
   }
   _renderBeers(beerObject){
     return(
-      <Beer beerObject={beerObject} />
+      <Beer beerObject={beerObject} navigator={this.props.navigator}/>
     )
 
   }
