@@ -20,31 +20,33 @@ export default class BreweryList extends Component{
       beers: dataSource.cloneWithRows([])
     }
     this._getBreweries = this._getBreweries.bind(this);
-    this._renderBeers = this._renderBeers.bind(this);
   }
   _getBreweries(){
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
     })
-    var searchString = `https://api.brewerydb.com/v2/brewery/${this.props.breweryid}/beers?key=71adb5730d8b61f38b3894fa400f85a7`;
-    fetch(searchString).then((response) => response.json())
-    .then((responseText) => {
-      if (responseText.data) {
-        this.setState({
-          beers: dataSource.cloneWithRows(responseText.data)
-        })
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    let breweryData = this.props.breweryid;
+    let beerData = [];
+    let newBeerData = [];
+    for (var i = 0; i < this.props.brewerycount; i++) {
+      var beersearchString = `https://api.brewerydb.com/v2/brewery/${this.props.breweryid[i]}/beers?key=71adb5730d8b61f38b3894fa400f85a7`;
+      console.log(beersearchString);
+      fetch(beersearchString).then((response) => response.json())
+      .then((responseText) => {
+        if (responseText.data){
+          newBeerData = beerData.concat(responseText.data);
+          beerData = newBeerData;
+          this.setState({
+            beers: dataSource.cloneWithRows(newBeerData)
+          })
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
   }
-  _renderBeers(beerObject){
-    return(
-      <Beer beerObject={beerObject} navigator={this.props.navigator}/>
-    )
 
-  }
   componentDidMount(){
     this._getBreweries();
   }
