@@ -54,6 +54,7 @@ export default class App extends Component {
 
   _nearMePress() {
     this.props.navigator.push({
+      barTintColor: '#c34517',
       title: 'Random List',
       component: RandomList
     })

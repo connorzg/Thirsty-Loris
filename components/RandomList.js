@@ -12,37 +12,53 @@ import {ListView} from 'realm/react-native';
 import Beer from './Beer.js';
 import BeerList from './BeerList.js';
 import axios from 'axios';
-import NavBar from './NavBar.js'
+import NavBar from './NavBar.js';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 export default class RandomList extends Component {
   constructor(props){
     super(props);
+
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
     })
+
     this.state = {
-      beers: dataSource.cloneWithRows([])
+      beers: dataSource.cloneWithRows([]),
+      visible: false
     }
+  }
+
+  componentDidMount() {
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1,r2) => r1 !== r2
+    })
+    this.setState({
+      visible: !this.state.visible
+    })
     fetch('https://api.brewerydb.com/v2/beers?order=random&randomCount=10&hasLabel=Y&withBreweries=Y&withSocialAccounts=Y&withIngredients=Y&abv=0,50&key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
     .then((responseText) => {
       this.setState({
-        beers: dataSource.cloneWithRows(responseText.data)
+        beers: dataSource.cloneWithRows(responseText.data),
+        visible: !this.state.visible
       })
     })
     .catch(function (error) {
       console.log(error);
-    });
+  });
   }
 
 
   render() {
     return(
-      <View>
+      <View style={{flex: 1}}>
+        <View style={{flex: 1}}>
+          <Spinner color={'#c34517'} visible={this.state.visible} />
+        </View>
         <BeerList
           navigator={this.props.navigator}
           beers={this.state.beers}
         />
-        {/* <NavBar nearMe={this._nearMePress} saved={this._savedPress} tasted={this._tastedPress}/> */}
       </View>
     )
   }
