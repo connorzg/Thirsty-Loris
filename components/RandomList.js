@@ -39,8 +39,8 @@ export default class RandomList extends Component {
     fetch('https://api.brewerydb.com/v2/beers?order=random&randomCount=10&hasLabel=Y&withBreweries=Y&withSocialAccounts=Y&withIngredients=Y&abv=0,50&key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
     .then((responseText) => {
       this.setState({
-        beers: dataSource.cloneWithRows(responseText.data),
-        visible: !this.state.visible
+        visible: !this.state.visible,
+        beers: dataSource.cloneWithRows(responseText.data)
       })
     })
     .catch(function (error) {

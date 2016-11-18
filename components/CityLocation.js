@@ -34,7 +34,6 @@ export default class CityLocation extends Component{
     })
     fetch('https://api.brewerydb.com/v2/locations?locality=' + this.state.city + '&key=71adb5730d8b61f38b3894fa400f85a7').then((response) => response.json())
     .then((responseText) => {
-      console.log(responseText);
       this.setState({
         breweries: dataSource.cloneWithRows(responseText.data),
         city: ''
@@ -47,7 +46,6 @@ export default class CityLocation extends Component{
 
   _handleTextChange(city) {
     this.setState({city})
-    console.log(this.state.city);
   }
 
   render(){

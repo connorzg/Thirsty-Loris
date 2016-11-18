@@ -25,6 +25,7 @@ export default class thirstyloris extends Component {
       <NavigatorIOS
         style={styles.container}
         initialRoute={{
+          barTintColor: '#c34517',
           title: 'Beer Traveler',
           component: App
         }}

@@ -21,13 +21,11 @@ export default class TypeSearch extends Component{
   }
   _searchTypes(){
     var searchString = `https://api.brewerydb.com/v2/styles?name=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
-    console.log('type ', searchString);
     fetch(searchString, {
       params: {
       }
     }).then((response) => response.json())
     .then((responseText) => {
-      //console.log(responseText.data);
       if (responseText.data.length > 0) {
         let newTypeId = responseText.data[0].id;
         let newTypeName = responseText.data[0].name;
