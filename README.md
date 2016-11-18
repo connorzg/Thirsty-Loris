@@ -18,7 +18,7 @@ more than one brewery on location
 * User can place beers they have tried into a tasted section
 
 # **Wireframe:**
-![](../images/framework1.jpg)
+![framework picture](./images/framework1.jpg)
 ![framework picture](./images/framework2.jpg)
 ![framework picture](./images/framework3.jpg)
 ![framework picture](./images/framework4.jpg)
