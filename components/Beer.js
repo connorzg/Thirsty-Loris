@@ -15,9 +15,12 @@ import {ListView} from 'realm/react-native';
 import BeerInfo from './BeerInfo.js';
 
 export default class Beer extends Component {
-
+  constructor(props){
+    super(props);
+    console.log(this.props.navigator);
+  }
   _beerPress() {
-    console.log(this.props.beerObject);
+    //console.log(this.props.beerObject);
     this.props.navigator.push({
       title: 'Beer Info',
       component: BeerInfo,
@@ -79,7 +82,7 @@ const styles = StyleSheet.create({
   buttonContainer:{
     flex: 1,
     padding: 10/PixelRatio.get(),
-    minHeight: 150/PixelRatio.get(),
+    minHeight: 200/PixelRatio.get(),
     borderColor: '#cac9cf',
     borderWidth: 1,
     flexDirection: 'row',

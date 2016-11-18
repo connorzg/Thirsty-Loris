@@ -14,6 +14,7 @@ export default class SearchBar extends Component{
       <View style={styles.searchContainer}>
         <TextInput
         placeholder="Tap to Search"
+        value={this.props.value}
         style={styles.searchBar}
         onSubmitEditing={this.props.searchBarSubmit} onChangeText={this.props.onChangeText}
         onPress={this.props.clearText}/>
@@ -29,13 +30,14 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     width: 115,
     borderRadius: 5,
-    height: 30,
-    paddingLeft: 5
+    height: 30
   },
   searchBar: {
     flex: 1,
     height: 30,
     width: 115,
-    color: '#c34517'
+    color: '#c34517',
+    textAlign: 'center',
+    fontFamily: 'Raleway'
   }
 })
