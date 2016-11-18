@@ -61,9 +61,6 @@ export default class ABVList extends Component{
         <View style={{flex: 1}}>
           <Spinner overlayColor={'rgba(0,0,0,0.1)'} color={'#f7b20a'} visible={this.state.visible} />
         </View>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
         <BeerList
           navigator={this.props.navigator}
           beers={this.state.beers}
