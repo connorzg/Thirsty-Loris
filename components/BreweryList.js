@@ -35,6 +35,7 @@ export default class BreweryList extends Component{
       .then((responseText) => {
         if (responseText.data){
           newBeerData = beerData.concat(responseText.data);
+          beerData = newBeerData;
           this.setState({
             beers: dataSource.cloneWithRows(newBeerData)
           })

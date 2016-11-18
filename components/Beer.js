@@ -13,17 +13,19 @@ import {
 } from 'react-native';
 import {ListView} from 'realm/react-native';
 import BeerInfo from './BeerInfo.js';
+import App from './App.js';
 
 export default class Beer extends Component {
   constructor(props){
     super(props);
-    console.log(this.props.navigator);
   }
   _beerPress() {
-    //console.log(this.props.beerObject);
     this.props.navigator.push({
+      barTintColor: '#f7b20a',
       title: 'Beer Info',
       component: BeerInfo,
+      rightButtonTitle: 'Home',
+      onRightButtonPress: () => this.props.navigator.popToTop(),
       passProps: {
         beerObject: this.props.beerObject
       }
@@ -31,7 +33,6 @@ export default class Beer extends Component {
   }
 
   render() {
-    console.log(this.props.beerObject);
     let imgUrl = require('../images/Beer-icon.png');
     if (this.props.beerObject.labels){
       imgUrl = {uri: this.props.beerObject.labels.large};
