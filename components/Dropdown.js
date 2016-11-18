@@ -13,6 +13,11 @@ export default class Dropdown extends Component{
     return(
       <View style={styles.dropdownContainer}>
         <PickerIOS
+        itemStyle={{
+          color: 'white',
+          fontWeight: '700',
+          fontFamily: 'Raleway-bold'
+        }}
         style={styles.dropdown}
         onValueChange={this.props.handleSearch}
         selectedValue={this.props.selectedValue}
@@ -29,6 +34,7 @@ export default class Dropdown extends Component{
 
 var styles = StyleSheet.create({
   dropdownContainer: {
-    width: 83
+    width: 100,
+    bottom: 20
   }
 })
