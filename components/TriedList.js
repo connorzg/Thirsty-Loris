@@ -25,8 +25,6 @@ export default class TriedList extends Component {
     this.state = {
       beers: dataSource.cloneWithRows(savedBeer)
     }
-    console.log(realm.objects('Beer'));
-    console.log(savedBeer);
   }
 
 
