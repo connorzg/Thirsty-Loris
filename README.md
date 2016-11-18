@@ -1,8 +1,11 @@
+# **Beer Traveler:**
+Imagine you're visiting a new city and you're curious what local beer is available. Beer Traveler allows you to browse through a beer list based off your search type. Add beers to the saved list to keep them for future reference and move them over to your tasted list after you've given your beer a try!
+
 # **Technologies Used:**
 React Native, Realm
 
 # **Approach to project:**
-Think of app idea, make app....We used our wireframe as a solid foundation to our project and built on it as we went.
+We used our wireframe as a solid foundation to our project and built on it as we went.
 
 We didn't shy away from using as many components as possible and worked very well as a team of developers and
 
@@ -26,8 +29,11 @@ more than one brewery on location
 ![framework picture](./images/framework6.jpg)
 
 # **Future goals:**
-* Include search near me,
+* Implement search near me,
 * Delete from list option,
 * Leave review and rating for tasted beers,
 * Animations for landing screen background,
 * Beer of the day
+
+# **TO BE CONTINUED**
+![victory](http://giphy.com/gifs/dance-baseball-leg-bhrxcjDGsnGq4)

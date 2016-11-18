@@ -49,6 +49,9 @@ export default class LocationList extends Component{
   render(){
     return(
       <View>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
         <BeerList
           beers={this.state.beers}
           navigator={this.props.navigator}

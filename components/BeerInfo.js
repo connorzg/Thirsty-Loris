@@ -108,7 +108,9 @@ export default class BeerInfo extends Component {
             <View style={styles.infoText}>
               <Text style={styles.name}>{beer.name}</Text>
               <Text style={styles.info}>{breweryName}</Text>
-              <Text style={styles.info}>{typeName}</Text>
+              <View style={styles.wrap}>
+                <Text style={styles.info}>{typeName}</Text>
+              </View>
               <Text style={styles.num}>ABV: {beer.abv}</Text>
               <Text style={styles.num}>IBU: {beer.ibu}</Text>
             </View>
@@ -137,7 +139,7 @@ var styles = StyleSheet.create({
     alignItems: 'center'
   },
   image: {
-    right: 5,
+    right: 10,
     width: 100,
     height: 100,
     marginRight: 10
@@ -145,6 +147,9 @@ var styles = StyleSheet.create({
   infoRow: {
     flexDirection: 'row',
     bottom: 20
+  },
+  infoTextBox: {
+    flexWrap: 'wrap'
   },
   num: {
     fontFamily: 'Raleway',
@@ -171,10 +176,13 @@ var styles = StyleSheet.create({
   name: {
     fontFamily: 'ECONOMICA',
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,
   },
   info: {
     fontFamily: 'Raleway',
-    fontWeight: '500'
+    fontWeight: '500',
+  },
+  wrap: {
+    flexWrap: 'wrap'
   }
 })

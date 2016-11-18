@@ -50,7 +50,7 @@ export default class ABVList extends Component{
       <Beer beerObject={beerObject} />
     )
   }
-  
+
   componentDidMount(){
     this._getBreweries();
   }
