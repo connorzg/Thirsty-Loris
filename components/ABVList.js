@@ -17,6 +17,7 @@ export default class ABVList extends Component{
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
     })
+
     this.state = {
       beers: dataSource.cloneWithRows([]),
       visible: false
@@ -24,6 +25,7 @@ export default class ABVList extends Component{
     this._getBreweries = this._getBreweries.bind(this);
     this._renderBeers = this._renderBeers.bind(this);
   }
+
   _getBreweries(){
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1,r2) => r1 !== r2
@@ -31,7 +33,6 @@ export default class ABVList extends Component{
     this.setState({
       visible: !this.state.visible
     })
-    https://api.brewerydb.com/v2/beers?key=71adb5730d8b61f38b3894fa400f85a7
     var searchString = `https://api.brewerydb.com/v2/beers?abv=${this.props.abvValue}&key=71adb5730d8b61f38b3894fa400f85a7`;
     fetch(searchString).then((response) => response.json())
     .then((responseText) => {
@@ -48,11 +49,12 @@ export default class ABVList extends Component{
     return(
       <Beer beerObject={beerObject} />
     )
-
   }
+  
   componentDidMount(){
     this._getBreweries();
   }
+
   render(){
     return(
       <View>

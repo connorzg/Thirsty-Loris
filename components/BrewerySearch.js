@@ -15,19 +15,23 @@ import Spinner from 'react-native-loading-spinner-overlay';
 export default class BrewerySearch extends Component{
   constructor(props){
     super(props);
+
     this.state = {
       searchTerm: this.props.brewery,
       currentBrewery: [],
+      visible: false,
       breweryCount: ''
     }
     this._showList = this._showList.bind(this);
   }
+
   _searchBreweries(){
     this.setState({
       visible: !this.state.visible
     })
     let currentBreweries = this.state.currentBrewery;
     var searchString = `https://api.brewerydb.com/v2/search?type=brewery&q=${this.state.searchTerm}&key=71adb5730d8b61f38b3894fa400f85a7&`;
+
     fetch(searchString, {
       params: {
       }
@@ -44,7 +48,6 @@ export default class BrewerySearch extends Component{
           breweryCount: breweryCount,
           visible: !this.state.visible
         })
-        //this._showList();
       } else {
         this.setState({
           searchTerm: 'No results found.'
@@ -55,6 +58,7 @@ export default class BrewerySearch extends Component{
       console.log(error);
     });
   }
+
   _showList(){
     if (this.state.currentBrewery.length < 1){
       return (<Text>Beers loading...</Text>);
@@ -65,9 +69,11 @@ export default class BrewerySearch extends Component{
         brewerycount = {this.state.breweryCount} />);
     }
   }
+
   componentWillMount(){
     this._searchBreweries();
   }
+  
   render(){
     let listDisplay = this._showList();
     return(
