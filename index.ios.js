@@ -43,8 +43,8 @@ export default class thirstyloris extends Component {
         return (<TriedList navigator={navigator} title='Tried List'/>);
       case 'Saved List':
         return (<SavedList navigator={navigator} title='Saved List'/>);
-      case 'Random List':
-        return (<RandomList navigator={navigator} title='Random List'/>);
+      case "I\'m Feeling Lucky":
+        return (<RandomList navigator={navigator} title="I'm Feeling Lucky"/>);
       case 'Beer Info':
         return (<BeerInfo navigator={navigator} title='Beer Info'/>);
       case 'Beer List':

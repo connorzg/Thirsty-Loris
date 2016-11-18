@@ -13,7 +13,7 @@ export default class NavBar extends Component{
     return(
       <View style={styles.navContainer}>
         <TouchableOpacity style={styles.nav} onPress={this.props.nearMe}>
-          <Text style={styles.navText}>NEAR ME</Text>
+          <Text style={styles.navText}>FEELING LUCKY</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.nav} onPress={this.props.saved}>
           <Text style={styles.navText}>SAVED</Text>
@@ -35,7 +35,7 @@ var styles = StyleSheet.create({
   },
   nav: {
     paddingVertical: 14,
-    paddingHorizontal: 25,
+    paddingHorizontal: 10,
     backgroundColor: 'white',
     borderRadius: 5,
     justifyContent: 'center',
