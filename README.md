@@ -20,20 +20,9 @@ more than one brewery on location
 * User is able to place a selected beer into a saved list to try out later
 * User can place beers they have tried into a tasted section
 
-# **Wireframe:**
-![framework picture](./images/framework1.jpg)
-![framework picture](./images/framework2.jpg)
-![framework picture](./images/framework3.jpg)
-![framework picture](./images/framework4.jpg)
-![framework picture](./images/framework5.jpg)
-![framework picture](./images/framework6.jpg)
-
 # **Future goals:**
 * Implement search near me,
 * Delete from list option,
 * Leave review and rating for tasted beers,
 * Animations for landing screen background,
 * Beer of the day
-
-# **TO BE CONTINUED**
-![victory](http://giphy.com/gifs/dance-baseball-leg-bhrxcjDGsnGq4)
